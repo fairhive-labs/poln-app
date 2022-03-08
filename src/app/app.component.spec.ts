@@ -1,8 +1,12 @@
+import { environment } from '@env/environment';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
+const title = environment.title
+
 describe('AppComponent', () => {
+  
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
@@ -23,13 +27,13 @@ describe('AppComponent', () => {
   it(`should have as title 'landing-page'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('landing-page');
+    expect(app.title).toEqual(title);
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('landing-page app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain(`${title} is coming...`);
   });
 });
