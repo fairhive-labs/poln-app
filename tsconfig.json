@@ -2,7 +2,15 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "src",
+    "paths": {
+      "@app/*": [
+        "app/*"
+      ],
+      "@env/*": [
+        "environments/*"
+      ]
+    },
     "allowSyntheticDefaultImports": true,
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
