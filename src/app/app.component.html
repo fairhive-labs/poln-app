@@ -5,10 +5,13 @@
         </button>
         <span class="title">{{title}}</span>
         <div>
-            <button mat-icon-button aria-label="menu">
+            <button mat-icon-button aria-label="switch light/dark mode">
                 <mat-icon>light_mode</mat-icon>
+            </button>
+            <button mat-icon-button aria-label="go to app">
+                <mat-icon>exit_to_app</mat-icon>
             </button>
         </div>
     </div>
 </mat-toolbar>
-<h2>Landing page is coming soon...</h2>
+<router-outlet></router-outlet>
