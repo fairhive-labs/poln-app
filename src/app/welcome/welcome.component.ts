@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.component.scss']
 })
 export class WelcomeComponent implements OnInit {
+  message = 'Decentralized protocol for blockchain recruitment and trusted projects';
 
   constructor() { }
 

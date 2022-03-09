@@ -2,15 +2,19 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WelcomeComponent } from './welcome.component';
 
+import { MatCardModule } from '@angular/material/card';
+
+
 describe('WelcomeComponent', () => {
   let component: WelcomeComponent;
   let fixture: ComponentFixture<WelcomeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WelcomeComponent ]
+      imports: [MatCardModule],
+      declarations: [WelcomeComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +25,10 @@ describe('WelcomeComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should contain a message', () => {
+    expect(component.message).toBeTruthy();
+    expect(component.message).toBe('Decentralized protocol for blockchain recruitment and trusted projects')
   });
 });
