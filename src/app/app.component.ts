@@ -1,5 +1,6 @@
 import { environment } from '@env/environment';
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = environment.title
+
+  constructor(@Inject(DOCUMENT) private document: Document){
+    this.document.documentElement.classList.add('mat-app-background');
+  }
 }
