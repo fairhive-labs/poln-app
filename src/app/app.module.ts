@@ -12,6 +12,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { MatCardModule } from '@angular/material/card';
 import { CredoComponent } from './welcome/credo/credo.component';
 import { ActorsComponent } from './welcome/actors/actors.component';
+import { ThemeSwitchComponent } from './theme-switch/theme-switch.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ActorsComponent } from './welcome/actors/actors.component';
     AppComponent,
     WelcomeComponent,
     CredoComponent,
-    ActorsComponent
+    ActorsComponent,
+    ThemeSwitchComponent
   ],
   imports: [
     BrowserModule,
