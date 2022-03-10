@@ -17,10 +17,10 @@ $fairhive-light-theme: mat.define-light-theme((color: (primary: $fairhive-primar
         )));
 
 
-@include mat.all-component-themes($fairhive-dark-theme);
+@include mat.all-component-colors($fairhive-light-theme);
 
-.light-theme {
-    @include mat.all-component-colors($fairhive-light-theme);
+.dark-theme {
+    @include mat.all-component-themes($fairhive-dark-theme);
 }
 
 html,
