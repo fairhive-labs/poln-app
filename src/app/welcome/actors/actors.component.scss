@@ -1,0 +1,11 @@
+.actors {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly
+}
+
+.mat-card {
+    width: 50%;
+}
