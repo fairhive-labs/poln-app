@@ -6,8 +6,10 @@ import { MatCardModule } from '@angular/material/card';
 import { Component } from '@angular/core';
 
 @Component({ selector: 'app-credo', template: '<h1>credo</h1>' })
-class CredoStubComponent {
-}
+class CredoStubComponent { }
+
+@Component({ selector: 'app-actors', template: '<h1>actors</h1>' })
+class ActorsStubComponent { }
 
 describe('WelcomeComponent', () => {
   let component: WelcomeComponent;
@@ -16,7 +18,10 @@ describe('WelcomeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [MatCardModule],
-      declarations: [WelcomeComponent, CredoStubComponent]
+      declarations: [
+        WelcomeComponent, 
+        CredoStubComponent,
+        ActorsStubComponent]
     })
       .compileComponents();
   });
