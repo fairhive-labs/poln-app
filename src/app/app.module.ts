@@ -11,13 +11,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { MatCardModule } from '@angular/material/card';
 import { CredoComponent } from './welcome/credo/credo.component';
+import { ActorsComponent } from './welcome/actors/actors.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    CredoComponent
+    CredoComponent,
+    ActorsComponent
   ],
   imports: [
     BrowserModule,
