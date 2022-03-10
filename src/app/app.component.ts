@@ -8,7 +8,6 @@ import { DOCUMENT } from '@angular/common';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = environment.title
 
   constructor(@Inject(DOCUMENT) private document: Document){
     this.document.documentElement.classList.add('mat-app-background');
