@@ -3,7 +3,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { WelcomeComponent } from './welcome.component';
 
 import { MatCardModule } from '@angular/material/card';
+import { Component } from '@angular/core';
 
+@Component({ selector: 'app-credo', template: '<h1>credo</h1>' })
+class CredoStubComponent {
+}
 
 describe('WelcomeComponent', () => {
   let component: WelcomeComponent;
@@ -12,7 +16,7 @@ describe('WelcomeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [MatCardModule],
-      declarations: [WelcomeComponent]
+      declarations: [WelcomeComponent, CredoStubComponent]
     })
       .compileComponents();
   });

@@ -10,12 +10,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { MatCardModule } from '@angular/material/card';
+import { CredoComponent } from './welcome/credo/credo.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    CredoComponent
   ],
   imports: [
     BrowserModule,
