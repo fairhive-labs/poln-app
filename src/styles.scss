@@ -1,4 +1,34 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material'as mat;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@include mat.core();
+
+$fairhive-primary: mat.define-palette(mat.$deep-orange-palette, 400, 300, 600);
+$fairhive-accent: mat.define-palette(mat.$deep-purple-palette, 400, 300, 600);
+$fairhive-warn: mat.define-palette(mat.$red-palette);
+
+$fairhive-dark-theme: mat.define-dark-theme((color: (primary: $fairhive-primary,
+            accent: $fairhive-accent,
+            warn: $fairhive-warn,
+        )));
+
+$fairhive-light-theme: mat.define-light-theme((color: (primary: $fairhive-primary,
+            accent: $fairhive-accent,
+            warn: $fairhive-warn,
+        )));
+
+
+@include mat.all-component-themes($fairhive-dark-theme);
+
+.light-theme {
+    @include mat.all-component-colors($fairhive-light-theme);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

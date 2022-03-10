@@ -1,4 +1,3 @@
-import { environment } from '@env/environment';
 import { Component, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
@@ -8,8 +7,9 @@ import { DOCUMENT } from '@angular/common';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  disabled = true;
 
-  constructor(@Inject(DOCUMENT) private document: Document){
+  constructor(@Inject(DOCUMENT) private document: Document) {
     this.document.documentElement.classList.add('mat-app-background');
   }
 }

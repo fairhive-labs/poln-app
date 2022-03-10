@@ -1,13 +1,13 @@
 <mat-toolbar color="primary">
     <div class="toolbar-content">
-        <button mat-icon-button aria-label="menu" disabled="true">
+        <button mat-icon-button aria-label="menu" [disabled]="disabled">
             <mat-icon>menu</mat-icon>
         </button>
         <div>
-            <button mat-icon-button aria-label="switch light/dark mode" disabled="true">
+            <button mat-icon-button aria-label="switch light/dark mode" [disabled]="disabled">
                 <mat-icon>light_mode</mat-icon>
             </button>
-            <button mat-icon-button aria-label="go to app" disabled="true">
+            <button mat-icon-button aria-label="go to app" [disabled]="disabled">
                 <mat-icon>apps</mat-icon>
             </button>
         </div>
