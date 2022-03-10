@@ -1,6 +1,6 @@
 import { MatIconModule } from '@angular/material/icon';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { finalize, take, tap } from 'rxjs';
+import { finalize, take } from 'rxjs';
 
 import { ThemeSwitchComponent, ThemeMode } from './theme-switch.component';
 

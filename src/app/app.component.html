@@ -4,9 +4,7 @@
             <mat-icon>menu</mat-icon>
         </button>
         <div>
-            <button mat-icon-button aria-label="switch light/dark mode" [disabled]="disabled">
-                <mat-icon>light_mode</mat-icon>
-            </button>
+            <app-theme-switch [mode]="mode" (modeChange)="enableMode($event)"></app-theme-switch>
             <button mat-icon-button aria-label="go to app" [disabled]="disabled">
                 <mat-icon>apps</mat-icon>
             </button>
