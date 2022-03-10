@@ -1,11 +1,21 @@
 .actors {
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
     justify-content: space-evenly
 }
 
 .mat-card {
-    width: 50%;
+    width: 33%; // or fixed size...
+    margin-bottom: 16px;
+}
+
+@media all and (max-device-width: 600px) {
+    .actors {
+        flex-direction: column;
+    }
+
+    .mat-card {
+        width: 90%;
+    }
 }
