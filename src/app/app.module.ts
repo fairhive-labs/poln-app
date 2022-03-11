@@ -14,6 +14,7 @@ import { CredoComponent } from './welcome/credo/credo.component';
 import { ActorsComponent } from './welcome/actors/actors.component';
 import { ThemeSwitchComponent } from './theme-switch/theme-switch.component';
 import { ClientComponent } from './welcome/actors/client/client.component';
+import { TalentComponent } from './welcome/actors/talent/talent.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ClientComponent } from './welcome/actors/client/client.component';
     CredoComponent,
     ActorsComponent,
     ThemeSwitchComponent,
-    ClientComponent
+    ClientComponent,
+    TalentComponent
   ],
   imports: [
     BrowserModule,
