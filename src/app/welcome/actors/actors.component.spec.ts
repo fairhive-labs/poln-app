@@ -2,6 +2,10 @@ import { MatCardModule } from '@angular/material/card';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ActorsComponent } from './actors.component';
+import { Component } from '@angular/core';
+
+@Component({ selector: 'app-client', template: '<h1>client</h1>' })
+class ClientStubComponent { }
 
 describe('ActorsComponent', () => {
   let component: ActorsComponent;
@@ -10,7 +14,10 @@ describe('ActorsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [MatCardModule],
-      declarations: [ActorsComponent]
+      declarations: [
+        ActorsComponent,
+        ClientStubComponent
+      ]
     })
       .compileComponents();
   });

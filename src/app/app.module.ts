@@ -13,6 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CredoComponent } from './welcome/credo/credo.component';
 import { ActorsComponent } from './welcome/actors/actors.component';
 import { ThemeSwitchComponent } from './theme-switch/theme-switch.component';
+import { ClientComponent } from './welcome/actors/client/client.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ThemeSwitchComponent } from './theme-switch/theme-switch.component';
     WelcomeComponent,
     CredoComponent,
     ActorsComponent,
-    ThemeSwitchComponent
+    ThemeSwitchComponent,
+    ClientComponent
   ],
   imports: [
     BrowserModule,
