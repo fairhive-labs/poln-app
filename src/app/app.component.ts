@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ThemeMode } from './theme-switch/theme-switch.component';
 
-export const THEME_MODE = 'theme_mode';
+export const THEME_MODE = btoa('fairhive_landing_page_theme_mode');
 
 @Component({
   selector: 'app-root',
