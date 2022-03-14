@@ -3,20 +3,12 @@
     flex-wrap: wrap;
     align-content: center;
     justify-content: space-evenly;
-    align-items: stretch;
-}
-
-.mat-card {
-    // width: 33%; // or fixed size...
-    margin-bottom: 16px;
+    align-items: flex-start;
 }
 
 @media all and (max-device-width: 600px) {
     .actors {
         flex-direction: column;
-    }
-
-    .mat-card {
-        width: 90%;
+        align-items: stretch;
     }
 }
