@@ -6,9 +6,9 @@
     align-items: flex-start;
 }
 
-@media all and (max-device-width: 600px) {
+@media all and (max-width: 500px) {
     .actors {
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
     }
 }

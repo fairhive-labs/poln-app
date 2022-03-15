@@ -9,6 +9,12 @@ p {
 
 .mat-card {
     margin-bottom: 16px;
-    min-width: 450px;
+    width: 450px;
     min-height: 290px;
+}
+
+@media all and (max-width: 500px) {
+    .mat-card {
+        width: 350px;
+    }
 }
