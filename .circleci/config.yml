@@ -38,6 +38,23 @@ jobs:
       - run:
           name: docker push
           command: docker push $IMAGE_NAME:$CIRCLE_BRANCH
+      - slack/notify:
+          custom: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "plain_text",
+                      "text": "*This is a text notification*",
+                      "emoji": true
+                    }
+                  ]
+                }
+              ]
+            }
+          event: always
       # - slack/notify:
       #     event: fail
       #     mentions: '@_whyvrafvr'
