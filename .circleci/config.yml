@@ -36,7 +36,14 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "*Docker image build & pushed*"
+                    "text": "*:rocket: Docker image: build & pushed !*"
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "Branch = $CIRCLE_BRANCH\nSHA = `$CIRCLE_SHA1`"
                   }
                 },
                 {
@@ -46,14 +53,14 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": ":whale: Run docker image"
+                    "text": ":whale: Execute the following Docker commands"
                   }
                 },
                 {
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "`docker pull $IMAGE_NAME:$CIRCLE_BRANCH`\n\n`docker run -p 3000:80 -d --rm --name landing-page $IMAGE_NAME:$CIRCLE_BRANCH`"
+                    "text": ">`docker stop landing-page`\n\n>`docker pull $IMAGE_NAME:$CIRCLE_BRANCH`\n\n>`docker run -p 3000:80 -d --rm --name landing-page $IMAGE_NAME:$CIRCLE_BRANCH`"
                   }
                 }
               ]
@@ -66,4 +73,6 @@ workflows:
           context: slack-secrets
           filters:
             branches:
-              ignore: main
+              ignore: 
+                - main
+                - gh-pages
