@@ -17,6 +17,13 @@ jobs:
       - run:
           name: docker build
           command: DOCKER_BUILDKIT=1 docker build -t $IMAGE_NAME --build-arg BUILDKIT_INLINE_CACHE=1 .
+      - slack/notify:
+          event: fail
+          mentions: "@_whyvrafvr"
+          template: basic_fail_1
+      - slack/notify:
+          event: pass
+          template: success_tagged_deploy_1
       - run:
           name: docker tag
           command: docker tag $IMAGE_NAME $IMAGE_NAME:${CIRCLE_SHA1:0:8}
@@ -29,13 +36,6 @@ jobs:
       - run:
           name: docker push $IMAGE_NAME:${CIRCLE_SHA1:0:8}
           command: docker push $IMAGE_NAME:${CIRCLE_SHA1:0:8}
-      - slack/notify:
-          event: fail
-          mentions: "@_whyvrafvr"
-          template: basic_fail_1
-      - slack/notify:
-          event: pass
-          template: success_tagged_deploy_1
   build: # generic job for other branches
     environment:
       IMAGE_NAME: fairhivelabs/landing-page
@@ -48,12 +48,6 @@ jobs:
       - run:
           name: docker build
           command: DOCKER_BUILDKIT=1 docker build -t $IMAGE_NAME:$CIRCLE_BRANCH -f $CIRCLE_BRANCH.Dockerfile --build-arg BUILDKIT_INLINE_CACHE=1 .
-      - run:
-          name: docker login
-          command: docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - run:
-          name: docker push
-          command: docker push $IMAGE_NAME:$CIRCLE_BRANCH
       - slack/notify:
           event: fail
           mentions: "@_whyvrafvr"
@@ -61,6 +55,12 @@ jobs:
       - slack/notify:
           event: pass
           template: success_tagged_deploy_1
+      - run:
+          name: docker login
+          command: docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - run:
+          name: docker push
+          command: docker push $IMAGE_NAME:$CIRCLE_BRANCH
 workflows:
   version: 2
   commit:
