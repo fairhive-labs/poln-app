@@ -5,11 +5,9 @@ jobs:
   build_master:
     environment:
       IMAGE_NAME: fairhivelabs/landing-page
-    machine : true
+    machine: true
     steps:
       - checkout
-      - setup_remote_docker:
-          docker_layer_caching: true
       - run:
           name: docker build
           command: docker build -t $IMAGE_NAME .
@@ -31,8 +29,6 @@ jobs:
     machine : true
     steps:
       - checkout
-      - setup_remote_docker:
-          docker_layer_caching: true
       - run:
           name: docker build
           command: docker build -t $IMAGE_NAME:$CIRCLE_BRANCH -f $CIRCLE_BRANCH.Dockerfile --build-arg BUILDKIT_INLINE_CACHE=1 .
