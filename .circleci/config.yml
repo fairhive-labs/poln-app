@@ -29,23 +29,6 @@ jobs:
     machine : true
     steps:
       - checkout
-      - slack/notify:
-          custom: |
-            {
-              "blocks": [
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": ":ghost: *Building & Pushing Docker image*",
-                      "emoji": true
-                    }
-                  ]
-                }
-              ]
-            }
-          event: always
       - run:
           name: docker build
           command: DOCKER_BUILDKIT=1 docker build -t $IMAGE_NAME:$CIRCLE_BRANCH --build-arg BUILDKIT_INLINE_CACHE=1 .
@@ -60,8 +43,22 @@ jobs:
           mentions: '@_whyvrafvr'
           template: basic_fail_1
       - slack/notify:
+          custom: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": ":whale: *Run Docker image:*\n`docker run -p 3000:80 -d --rm --name landing-page $IMAGE_NAME:$CIRCLE_BRANCH`",
+                      "emoji": true
+                    }
+                  ]
+                }
+              ]
+            }
           event: pass
-          template: success_tagged_deploy_1
 workflows:
   version: 2
   commit:
