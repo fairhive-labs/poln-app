@@ -49,12 +49,27 @@ jobs:
               "blocks": [
                 {
                   "type": "section",
-                  "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": ":whale: *Run Docker image:*\n\n`docker run -p 3000:80 -d --rm --name landing-page $IMAGE_NAME:$CIRCLE_BRANCH`"
-                    }
-                  ]
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Docker image build & pushed :white_check_mark:*"
+                  }
+                },
+                {
+                  "type": "divider"
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": ":whale: Run docker image"
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": ">*`docker run -p 3000:80 -d --rm --name landing-page $IMAGE_NAME:$CIRCLE_BRANCH`*"
+                  }
                 }
               ]
             }
