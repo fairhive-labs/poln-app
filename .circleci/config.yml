@@ -43,7 +43,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Branch:\n`$CIRCLE_BRANCH`\n\nSHA:\n`$CIRCLE_SHA1`"
+                    "text": "Branch:\n`$CIRCLE_BRANCH`\n\nLast commit:\n`$CIRCLE_SHA1`"
                   }
                 },
                 {
