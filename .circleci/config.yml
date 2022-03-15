@@ -49,4 +49,4 @@ workflows:
       - build:
           filters:
             branches:
-              only: actors
+              ignore: main
