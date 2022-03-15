@@ -53,7 +53,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "*`docker run -p 3000:80 -d --rm --name landing-page $IMAGE_NAME:$CIRCLE_BRANCH`*"
+                    "text": "`docker pull $IMAGE_NAME:$CIRCLE_BRANCH`\n\n`docker run -p 3000:80 -d --rm --name landing-page $IMAGE_NAME:$CIRCLE_BRANCH`"
                   }
                 }
               ]
