@@ -43,6 +43,7 @@ jobs:
           mentions: '@_whyvrafvr'
           template: basic_fail_1
       - slack/notify:
+          event: pass
           custom: |
             {
               "blocks": [
@@ -51,14 +52,12 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": ":whale: *Run Docker image:*\n`docker run -p 3000:80 -d --rm --name landing-page $IMAGE_NAME:$CIRCLE_BRANCH`",
-                      "emoji": true
+                      "text": ":whale: *Run Docker image:*\n\n`docker run -p 3000:80 -d --rm --name landing-page $IMAGE_NAME:$CIRCLE_BRANCH`"
                     }
                   ]
                 }
               ]
             }
-          event: pass
 workflows:
   version: 2
   commit:
