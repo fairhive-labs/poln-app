@@ -1,0 +1,27 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1%;
+    justify-content: center;
+    align-content: center;
+    padding: 10px;
+}
+
+.value {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+    justify-content: center;
+    align-content: center;
+}
+
+span.mat-display-2 {
+    text-align: center;
+    margin-bottom: 1%;
+}
+
+span.headline{
+    text-align: center;
+    font-size: x-large;
+    margin-bottom: 16px;
+}
