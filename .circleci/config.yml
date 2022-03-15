@@ -38,6 +38,13 @@ jobs:
       - run:
           name: docker push
           command: docker push $IMAGE_NAME:$CIRCLE_BRANCH
+      # - slack/notify:
+      #     event: fail
+      #     mentions: '@_whyvrafvr'
+      #     template: basic_fail_1
+      # - slack/notify:
+      #     event: pass
+      #     template: success_tagged_deploy_1
 workflows:
   version: 2
   commit:
@@ -47,6 +54,7 @@ workflows:
             branches:
               only: main
       - build:
+          context: slack-secrets
           filters:
             branches:
               ignore: main
