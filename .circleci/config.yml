@@ -2,28 +2,7 @@ version: 2.1
 orbs:
   slack: circleci/slack@4.8.3
 jobs:
-  build_master:
-    environment:
-      IMAGE_NAME: fairhivelabs/landing-page
-    machine: true
-    steps:
-      - checkout
-      - run:
-          name: docker build
-          command: DOCKER_BUILDKIT=1 docker build -t $IMAGE_NAME .
-      - run:
-          name: docker tag
-          command: docker tag $IMAGE_NAME $IMAGE_NAME:${CIRCLE_SHA1:0:8}
-      - run:
-          name: docker login
-          command: docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - run:
-          name: docker push $IMAGE_NAME:latest
-          command: docker push $IMAGE_NAME:latest
-      - run:
-          name: docker push $IMAGE_NAME:${CIRCLE_SHA1:0:8}
-          command: docker push $IMAGE_NAME:${CIRCLE_SHA1:0:8}
-  build: # generic job for other branches
+  build: 
     environment:
       IMAGE_NAME: fairhivelabs/landing-page
     machine : true
@@ -33,11 +12,17 @@ jobs:
           name: docker build
           command: DOCKER_BUILDKIT=1 docker build -t $IMAGE_NAME:$CIRCLE_BRANCH --build-arg BUILDKIT_INLINE_CACHE=1 .
       - run:
+          name: docker tag
+          command: docker tag $IMAGE_NAME:$CIRCLE_BRANCH $IMAGE_NAME:${CIRCLE_SHA1:0:8}
+      - run:
           name: docker login
           command: docker login -u $DOCKER_USER -p $DOCKER_PASS
       - run:
           name: docker push
           command: docker push $IMAGE_NAME:$CIRCLE_BRANCH
+      - run:
+          name: docker push $IMAGE_NAME:${CIRCLE_SHA1:0:8}
+          command: docker push $IMAGE_NAME:${CIRCLE_SHA1:0:8}
       - slack/notify:
           event: fail
           mentions: '@_whyvrafvr'
@@ -51,7 +36,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "*Docker image build & pushed :white_check_mark:*"
+                    "text": ":white_check_mark: *Docker image build & pushed*"
                   }
                 },
                 {
@@ -68,7 +53,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": ">*`docker run -p 3000:80 -d --rm --name landing-page $IMAGE_NAME:$CIRCLE_BRANCH`*"
+                    "text": "*`docker run -p 3000:80 -d --rm --name landing-page $IMAGE_NAME:$CIRCLE_BRANCH`*"
                   }
                 }
               ]
@@ -77,10 +62,6 @@ workflows:
   version: 2
   commit:
     jobs:
-      - build_master:
-          filters:
-            branches:
-              only: main
       - build:
           context: slack-secrets
           filters:
