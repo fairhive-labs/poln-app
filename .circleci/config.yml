@@ -29,6 +29,23 @@ jobs:
     machine : true
     steps:
       - checkout
+      - slack/notify:
+          custom: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": ":ghost: *Building & Pushing Docker image*",
+                      "emoji": true
+                    }
+                  ]
+                }
+              ]
+            }
+          event: always
       - run:
           name: docker build
           command: DOCKER_BUILDKIT=1 docker build -t $IMAGE_NAME:$CIRCLE_BRANCH --build-arg BUILDKIT_INLINE_CACHE=1 .
@@ -38,23 +55,6 @@ jobs:
       - run:
           name: docker push
           command: docker push $IMAGE_NAME:$CIRCLE_BRANCH
-      - slack/notify:
-          custom: |
-            {
-              "blocks": [
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "plain_text",
-                      "text": "*This is a text notification*",
-                      "emoji": true
-                    }
-                  ]
-                }
-              ]
-            }
-          event: always
       - slack/notify:
           event: fail
           mentions: '@_whyvrafvr'
