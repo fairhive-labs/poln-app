@@ -17,6 +17,7 @@ import { ClientComponent } from './welcome/actors/client/client.component';
 import { TalentComponent } from './welcome/actors/talent/talent.component';
 import { AgentComponent } from './welcome/actors/agent/agent.component';
 import { MentorComponent } from './welcome/actors/mentor/mentor.component';
+import { ValueComponent } from './welcome/value/value.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { MentorComponent } from './welcome/actors/mentor/mentor.component';
     ClientComponent,
     TalentComponent,
     AgentComponent,
-    MentorComponent
+    MentorComponent,
+    ValueComponent
   ],
   imports: [
     BrowserModule,

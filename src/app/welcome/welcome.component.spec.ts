@@ -11,6 +11,9 @@ class CredoStubComponent { }
 @Component({ selector: 'app-actors', template: '<h1>actors</h1>' })
 class ActorsStubComponent { }
 
+@Component({ selector: 'app-value', template: '<h2>value</h2>' })
+class ValueStubComponent { }
+
 describe('WelcomeComponent', () => {
   let component: WelcomeComponent;
   let fixture: ComponentFixture<WelcomeComponent>;
@@ -19,9 +22,11 @@ describe('WelcomeComponent', () => {
     await TestBed.configureTestingModule({
       imports: [MatCardModule],
       declarations: [
-        WelcomeComponent, 
+        WelcomeComponent,
         CredoStubComponent,
-        ActorsStubComponent]
+        ActorsStubComponent,
+        ValueStubComponent
+      ]
     })
       .compileComponents();
   });
