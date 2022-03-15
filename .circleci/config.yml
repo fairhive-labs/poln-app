@@ -4,7 +4,7 @@ jobs:
     environment:
       IMAGE_NAME: fairhivelabs/landing-page
     docker:
-      - image: alpine
+      - image: cimg/base
         # auth:
         #   username: mydockerhub-user
         #   password: $DOCKERHUB_PASSWORD
@@ -31,7 +31,7 @@ jobs:
     environment:
       IMAGE_NAME: trendev/kiam-webapp
     docker:
-      - image: alpine
+      - image: cimg/base
     steps:
       - checkout
       - setup_remote_docker:
