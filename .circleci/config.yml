@@ -5,25 +5,14 @@ jobs:
   build_master:
     environment:
       IMAGE_NAME: fairhivelabs/landing-page
-    docker:
-      - image: docker
-        # auth:
-        #   username: mydockerhub-user
-        #   password: $DOCKERHUB_PASSWORD
+    machine : true
     steps:
       - checkout
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
           name: docker build
-          command: docker build -t $IMAGE_NAME --build-arg BUILDKIT_INLINE_CACHE=1 .
-      - slack/notify:
-          event: fail
-          mentions: "@_whyvrafvr"
-          template: basic_fail_1
-      - slack/notify:
-          event: pass
-          template: success_tagged_deploy_1
+          command: docker build -t $IMAGE_NAME .
       - run:
           name: docker tag
           command: docker tag $IMAGE_NAME $IMAGE_NAME:${CIRCLE_SHA1:0:8}
@@ -39,8 +28,7 @@ jobs:
   build: # generic job for other branches
     environment:
       IMAGE_NAME: fairhivelabs/landing-page
-    docker:
-      - image: docker
+    machine : true
     steps:
       - checkout
       - setup_remote_docker:
@@ -48,13 +36,6 @@ jobs:
       - run:
           name: docker build
           command: docker build -t $IMAGE_NAME:$CIRCLE_BRANCH -f $CIRCLE_BRANCH.Dockerfile --build-arg BUILDKIT_INLINE_CACHE=1 .
-      - slack/notify:
-          event: fail
-          mentions: "@_whyvrafvr"
-          template: basic_fail_1
-      - slack/notify:
-          event: pass
-          template: success_tagged_deploy_1
       - run:
           name: docker login
           command: docker login -u $DOCKER_USER -p $DOCKER_PASS
