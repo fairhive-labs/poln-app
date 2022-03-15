@@ -2,10 +2,10 @@ version: 2.1
 orbs:
   slack: circleci/slack@4.8.3
 jobs:
-  build: 
+  build:
     environment:
       IMAGE_NAME: fairhivelabs/landing-page
-    machine : true
+    machine: true
     steps:
       - checkout
       - run:
@@ -25,7 +25,7 @@ jobs:
           command: docker push $IMAGE_NAME:${CIRCLE_SHA1:0:8}
       - slack/notify:
           event: fail
-          mentions: '@_whyvrafvr'
+          mentions: "@_whyvrafvr"
           template: basic_fail_1
       - slack/notify:
           event: pass
@@ -43,7 +43,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Branch = $CIRCLE_BRANCH\nSHA = `$CIRCLE_SHA1`"
+                    "text": "Branch:\n`$CIRCLE_BRANCH`\n\nSHA:\n`$CIRCLE_SHA1`"
                   }
                 },
                 {
@@ -73,6 +73,6 @@ workflows:
           context: slack-secrets
           filters:
             branches:
-              ignore: 
+              ignore:
                 - main
                 - gh-pages
