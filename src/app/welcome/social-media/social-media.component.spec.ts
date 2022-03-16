@@ -8,9 +8,9 @@ describe('SocialMediaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SocialMediaComponent ]
+      declarations: [SocialMediaComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +21,16 @@ describe('SocialMediaComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should contain some media', () => {
+    expect(component.media).toBeTruthy();
+    expect(component.media.length).toBeGreaterThan(0);
+  });
+
+  it('should contain Discord media', () => {
+    expect(component.media).toBeTruthy();
+    const i = component.media.findIndex(s => s.name.toLocaleLowerCase() === 'discord');
+    expect(i).not.toEqual(-1);
   });
 });

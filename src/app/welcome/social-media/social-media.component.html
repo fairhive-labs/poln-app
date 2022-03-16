@@ -1,1 +1,6 @@
-<p>social-media works!</p>
+<div class="content">
+    <span class="mat-display-2">Join fairhive's Community</span>
+    <div class="media">
+        <a *ngFor="let m of media" mat-button href="{{m.link}}" target="_blank">{{m.name}}</a>
+    </div>
+</div>
