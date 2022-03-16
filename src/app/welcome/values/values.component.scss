@@ -1,10 +1,20 @@
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+}
+
+span.title {
+    text-align: center;
+}
+
 .content {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap-reverse;
     align-items: baseline;
     justify-content: center;
-    margin-top: 5%;
     padding: 10px;
 }
 
@@ -15,7 +25,7 @@
     width: 50%;
 }
 
-span.mat-display-2 {
+span.mat-display-1 {
     text-align: center;
     margin-bottom: 1%;
 }
@@ -28,7 +38,7 @@ span.headline {
 
 @media all and (max-width: 500px) {
     .content {
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
     }
 
