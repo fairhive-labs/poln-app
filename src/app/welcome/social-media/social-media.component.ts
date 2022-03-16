@@ -26,7 +26,7 @@ export class SocialMediaComponent implements OnInit {
     },
     {
       name: 'Email',
-      link: 'https://something'
+      link: 'mailto:contact@fairhive-labs.com?subject=Hello fairhive'
     },
     {
       name: 'Github',
