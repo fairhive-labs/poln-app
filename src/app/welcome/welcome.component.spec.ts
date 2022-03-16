@@ -16,6 +16,9 @@ class ActorsStubComponent { }
 @Component({ selector: 'app-values', template: '<h2>value</h2>' })
 class ValuesStubComponent { }
 
+@Component({ selector: 'app-social-media', template: '<h2>social-media</h2>' })
+class SocialMediaStubComponent { }
+
 describe('WelcomeComponent', () => {
   let component: WelcomeComponent;
   let fixture: ComponentFixture<WelcomeComponent>;
@@ -29,7 +32,8 @@ describe('WelcomeComponent', () => {
         WelcomeComponent,
         CredoStubComponent,
         ActorsStubComponent,
-        ValuesStubComponent
+        ValuesStubComponent,
+        SocialMediaStubComponent
       ]
     })
       .compileComponents();

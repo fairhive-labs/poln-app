@@ -19,6 +19,7 @@ import { AgentComponent } from './welcome/actors/agent/agent.component';
 import { MentorComponent } from './welcome/actors/mentor/mentor.component';
 import { ValuesComponent } from './welcome/values/values.component';
 import { MatDividerModule } from '@angular/material/divider';
+import { SocialMediaComponent } from './welcome/social-media/social-media.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MatDividerModule } from '@angular/material/divider';
     TalentComponent,
     AgentComponent,
     MentorComponent,
-    ValuesComponent
+    ValuesComponent,
+    SocialMediaComponent
   ],
   imports: [
     BrowserModule,
