@@ -37,6 +37,26 @@ span.headline {
     line-height: 150%;
 }
 
+.community {
+    order: 5;
+}
+
+.fees {
+    order: 3;
+}
+
+.escrow {
+    order: 4;
+}
+
+.staking {
+    order: 1;
+}
+
+.mentoring {
+    order: 2;
+}
+
 @media all and (max-width: 500px) {
     .content {
         flex-direction: column-reverse;
@@ -45,5 +65,25 @@ span.headline {
 
     .value {
         width: 100%;
+    }
+
+    .community {
+        order: 5;
+    }
+
+    .fees {
+        order: 4;
+    }
+
+    .escrow {
+        order: 3;
+    }
+
+    .staking {
+        order: 2;
+    }
+
+    .mentoring {
+        order: 1;
     }
 }
