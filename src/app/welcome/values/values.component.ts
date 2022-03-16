@@ -7,14 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ValuesComponent implements OnInit {
 
-  option = true
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  changeOption() {
-    this.option = !this.option;
   }
 
 }
