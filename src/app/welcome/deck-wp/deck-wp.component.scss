@@ -2,26 +2,34 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 15%;
 }
 
 .mat-display-2 {
     text-align: center;
     font-weight: 300;
-    margin-bottom: 5%;
+    margin-bottom: 32px;
 }
 
 .media {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
+    width: 100%;
 }
 
 a {
-    font-size: medium;
+    font-size: xx-large;
+    font-weight: lighter;
 }
 
 @media all and (max-width: 500px) {
     .media {
         flex-direction: column;
+        width: auto;
+    }
+
+    a {
+        margin-bottom: 16px;
     }
 }
