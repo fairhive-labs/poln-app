@@ -33,10 +33,6 @@ export class SocialMediaComponent implements OnInit {
       link: 'https://github.com/fairhive-labs'
     },
     {
-      name: 'Docker',
-      link: 'https://hub.docker.com/orgs/fairhivelabs'
-    },
-    {
       name: 'Instagram',
       link: 'https://www.instagram.com/fairhive/'
     },

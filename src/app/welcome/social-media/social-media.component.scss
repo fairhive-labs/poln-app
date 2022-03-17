@@ -15,3 +15,13 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+a {
+    font-size: medium;
+}
+
+@media all and (max-width: 500px) {
+    .media {
+        flex-direction: column;
+    }
+}
