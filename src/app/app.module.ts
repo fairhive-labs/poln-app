@@ -20,6 +20,7 @@ import { MentorComponent } from './welcome/actors/mentor/mentor.component';
 import { ValuesComponent } from './welcome/values/values.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { SocialMediaComponent } from './welcome/social-media/social-media.component';
+import { DeckWpComponent } from './welcome/deck-wp/deck-wp.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { SocialMediaComponent } from './welcome/social-media/social-media.compon
     AgentComponent,
     MentorComponent,
     ValuesComponent,
-    SocialMediaComponent
+    SocialMediaComponent,
+    DeckWpComponent
   ],
   imports: [
     BrowserModule,
