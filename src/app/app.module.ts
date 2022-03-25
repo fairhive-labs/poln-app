@@ -21,6 +21,7 @@ import { ValuesComponent } from './welcome/values/values.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { SocialMediaComponent } from './welcome/social-media/social-media.component';
 import { DeckWpComponent } from './welcome/deck-wp/deck-wp.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { DeckWpComponent } from './welcome/deck-wp/deck-wp.component';
     MentorComponent,
     ValuesComponent,
     SocialMediaComponent,
-    DeckWpComponent
+    DeckWpComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
