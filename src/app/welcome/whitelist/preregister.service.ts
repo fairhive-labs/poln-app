@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, of, retry } from 'rxjs';
+import { catchError, Observable, of, retry } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,8 @@ export class PreregisterService {
 
   constructor(private http: HttpClient) { }
 
-  register(user: User) {
-    this.http.post<RegisterResponse>(`${this.url}`, user).pipe(
+  register(user: User): Observable<RegisterResponse | ErrorResponse> {
+    return this.http.post<RegisterResponse | ErrorResponse>(`${this.url}`, user).pipe(
       retry(3),
       catchError(err => this.handleError(err, {}))
     );
@@ -31,6 +31,10 @@ export class PreregisterService {
     }
     return of(data);
   }
+}
+
+export interface ErrorResponse {
+  error: string;
 }
 
 export interface RegisterResponse {
