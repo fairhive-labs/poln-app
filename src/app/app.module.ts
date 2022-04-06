@@ -22,7 +22,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { SocialMediaComponent } from './welcome/social-media/social-media.component';
 import { DeckWpComponent } from './welcome/deck-wp/deck-wp.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { RegisterComponent } from './welcome/register/register.component';
+import { RegisterComponent } from './welcome/waitlist/register/register.component';
 import { ActivateComponent } from './welcome/waitlist/activate/activate.component';
 
 @NgModule({
