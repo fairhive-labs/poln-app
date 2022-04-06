@@ -3,6 +3,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ActivateComponent } from './welcome/waitlist/activate/activate.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'activate',
+    component: ActivateComponent
   },
   {
     path: '', redirectTo: '/welcome', pathMatch: 'full'

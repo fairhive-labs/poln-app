@@ -23,6 +23,7 @@ import { SocialMediaComponent } from './welcome/social-media/social-media.compon
 import { DeckWpComponent } from './welcome/deck-wp/deck-wp.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterComponent } from './welcome/register/register.component';
+import { ActivateComponent } from './welcome/waitlist/activate/activate.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { RegisterComponent } from './welcome/register/register.component';
     SocialMediaComponent,
     DeckWpComponent,
     PageNotFoundComponent,
-    RegisterComponent
+    RegisterComponent,
+    ActivateComponent
   ],
   imports: [
     BrowserModule,
