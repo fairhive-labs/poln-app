@@ -21,3 +21,12 @@ export class PreregisterService {
     return of({ token: "t0k3N", activated: true });
   }
 }
+
+export interface RegisterResponse {
+  hash: string;
+}
+
+export interface ActivateResponse {
+  activated: boolean;
+  token: string;
+}
