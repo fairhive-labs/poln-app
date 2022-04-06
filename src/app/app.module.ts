@@ -24,6 +24,7 @@ import { DeckWpComponent } from './welcome/deck-wp/deck-wp.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterComponent } from './welcome/waitlist/register/register.component';
 import { ActivateComponent } from './welcome/waitlist/activate/activate.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ActivateComponent } from './welcome/waitlist/activate/activate.componen
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
