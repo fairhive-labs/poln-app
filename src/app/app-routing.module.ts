@@ -1,3 +1,4 @@
+import { RegisterComponent } from './welcome/register/register.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NgModule } from '@angular/core';
@@ -7,6 +8,10 @@ const routes: Routes = [
   {
     path: 'welcome',
     component: WelcomeComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
   {
     path: '', redirectTo: '/welcome', pathMatch: 'full'
