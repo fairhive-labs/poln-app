@@ -32,4 +32,9 @@ describe('RegisterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should contain 7 types of user',()=>{
+    expect(component.types).toBeTruthy();
+    expect(component.types).toHaveSize(7);
+  });
 });

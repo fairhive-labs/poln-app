@@ -18,7 +18,7 @@
                 <mat-form-field class="full-width" appearance="fill">
                     <mat-label>User Type</mat-label>
                     <mat-select>
-                        <mat-option *ngFor="let t of types" value="t">{{t}}</mat-option>
+                        <mat-option *ngFor="let t of types" value="t">{{t | uppercase}}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </form>
