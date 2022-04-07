@@ -7,7 +7,7 @@ import { PreregisterService, RegisterResponse, ActivateResponse } from './prereg
 
 describe('PreregisterService', () => {
   let service: PreregisterService;
-  let httpClient: HttpClient;
+  let http: HttpClient;
   let httpTestingController: HttpTestingController;
 
   beforeEach(() => {
@@ -16,7 +16,7 @@ describe('PreregisterService', () => {
         HttpClientTestingModule
       ]
     });
-    httpClient = TestBed.inject(HttpClient);
+    http = TestBed.inject(HttpClient);
     httpTestingController = TestBed.inject(HttpTestingController);
 
     service = TestBed.inject(PreregisterService);
@@ -41,7 +41,11 @@ describe('PreregisterService', () => {
     const address = '0x8ba1f109551bD432803012645Ac136ddd64DBA72';
     const type = 'mentor';
 
-    service.register(address, email, type).subscribe(r => expect(r).toEqual(testData));
+    http.post<RegisterResponse>(`${url}/`, {
+      address: address,
+      email: email,
+      type: type,
+    }).subscribe(r => expect(r).toEqual(testData));
     const req = httpTestingController.expectOne(`${url}/`);
     expect(req.request.method).toEqual('POST');
     req.flush(testData);
@@ -54,7 +58,7 @@ describe('PreregisterService', () => {
     const type = 'mentor';
     const err = { error: 'bad address' }
 
-    httpClient.post<RegisterResponse>(`${url}/`, {
+    http.post<RegisterResponse>(`${url}/`, {
       address: address,
       email: email,
       type: type,
@@ -76,7 +80,7 @@ describe('PreregisterService', () => {
     const hash = 'h4Sh';
     const testData: ActivateResponse = { token: token, activated: true };
 
-    service.activate(token, hash).subscribe(r => expect(r).toEqual(testData));
+    http.post<ActivateResponse>(`${url}/activate/${token}/${hash}`, null).subscribe(r => expect(r).toEqual(testData));
     const req = httpTestingController.expectOne(`${url}/activate/${token}/${hash}`);
     expect(req.request.method).toEqual('POST');
     req.flush(testData);
