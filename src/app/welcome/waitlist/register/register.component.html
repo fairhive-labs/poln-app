@@ -5,15 +5,17 @@
         </mat-card-subtitle>
         <mat-card-content>
             <form>
-                <mat-form-field hintLabel="Ex: 0x8ba1f109551bD432803012645Ac136ddd64DBA72" class="full-width" appearance="outline">
+                <mat-form-field hintLabel="Ex: 0x8ba1f109551bD432803012645Ac136ddd64DBA72" class="full-width"
+                    appearance="outline" color="accent">
                     <mat-label>Avalanche C-Chain Address</mat-label>
                     <input matInput type="text" required>
                 </mat-form-field>
-                <mat-form-field hintLabel="Ex: john.doe@fairhive-labs.com" class="full-width" appearance="outline">
+                <mat-form-field hintLabel="Ex: john.doe@fairhive-labs.com" class="full-width" appearance="outline"
+                    color="accent">
                     <mat-label>Email Address</mat-label>
                     <input matInput type="email" required>
                 </mat-form-field>
-                <mat-form-field class="full-width" appearance="outline">
+                <mat-form-field class="full-width" appearance="outline" color="accent">
                     <mat-label>User Type</mat-label>
                     <mat-select required>
                         <mat-option *ngFor="let t of types" value="t">{{t | uppercase}}</mat-option>
