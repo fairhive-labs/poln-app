@@ -3,7 +3,7 @@
 @include mat.core();
 
 $fairhive-primary: mat.define-palette(mat.$deep-orange-palette, 400, 300, 600);
-$fairhive-accent: mat.define-palette(mat.$deep-purple-palette, 400, 300, 600);
+$fairhive-accent: mat.define-palette(mat.$teal-palette, 300, 200, 500);
 $fairhive-warn: mat.define-palette(mat.$red-palette);
 
 $fairhive-dark-theme: mat.define-dark-theme((color: (primary: $fairhive-primary,
