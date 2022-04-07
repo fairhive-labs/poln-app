@@ -1,1 +1,30 @@
-<p>register works!</p>
+<div class="container">
+    <mat-card>
+        <mat-card-title>Preregistration - Waitlist</mat-card-title>
+        <mat-card-subtitle>Enter your Avalanche C-chain Address, your Email Address and Select a User Type
+        </mat-card-subtitle>
+        <mat-card-content>
+            <form>
+                <mat-form-field class="full-width" appearance="fill">
+                    <mat-label>Avalanche C-chain Address</mat-label>
+                    <input matInput>
+                    <mat-hint>Ex: 0x8ba1f109551bD432803012645Ac136ddd64DBA72</mat-hint>
+                </mat-form-field>
+                <mat-form-field class="full-width" appearance="fill">
+                    <mat-label>Email Address</mat-label>
+                    <input matInput>
+                    <mat-hint>Ex: john.doe@fairhive-labs.com</mat-hint>
+                </mat-form-field>
+                <mat-form-field class="full-width" appearance="fill">
+                    <mat-label>User Type</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let t of types" value="t">{{t}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button mat-raised-button color="primary">Submit</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

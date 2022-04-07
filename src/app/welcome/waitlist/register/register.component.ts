@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  types: string[];
+  private readonly _types = "advisor agent client contributor investor mentor talent";
+
+  constructor() {
+    this.types = this._types.split(" ").sort((t1, t2) => t1.localeCompare(t2));
+  }
 
   ngOnInit(): void {
   }
 
 }
+
