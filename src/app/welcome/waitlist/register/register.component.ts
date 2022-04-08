@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -15,9 +15,9 @@ export class RegisterComponent implements OnInit {
   constructor(private fb: FormBuilder) {
     this.types = this._types.split(" ").sort((t1, t2) => t1.localeCompare(t2));
     this.preregistrationForm = this.fb.group({
-      address: '',
-      email: '',
-      type: '',
+      address: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      type: ['', Validators.required],
     });
   }
 
