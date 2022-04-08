@@ -15,11 +15,11 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'activate',
+    path: 'activate/:token',
     component: ActivateComponent
   },
   {
-    path: '', redirectTo: '/activate', pathMatch: 'full'
+    path: '', redirectTo: '/register', pathMatch: 'full'
   },
   {
     path: '**', component: PageNotFoundComponent

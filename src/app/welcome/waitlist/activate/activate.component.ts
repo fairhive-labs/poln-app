@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, finalize, of } from 'rxjs';
 import { PreregisterService } from '../preregister.service';
 
@@ -14,14 +15,20 @@ export class ActivateComponent implements OnInit {
   submitted = false;
   progressing = false;
   submissionError = '';
+  token: string;
 
-  constructor(private fb: FormBuilder, private preregisterService: PreregisterService) {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private fb: FormBuilder,
+    private preregisterService: PreregisterService) {
     this.activationForm = this.fb.group({
       hash: ['', Validators.required],
     });
   }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => this.token = params.get('token')!);
   }
 
   get hash() {
@@ -40,7 +47,7 @@ export class ActivateComponent implements OnInit {
       Object.keys(this.controls).forEach(c => this.controls[c].disable());
 
       this.preregisterService.activate(
-        '',
+        this.token,
         this.hash.value
       ).pipe(
         finalize(() => {

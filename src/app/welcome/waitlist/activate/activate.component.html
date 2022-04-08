@@ -5,8 +5,7 @@
         </mat-card-subtitle>
         <mat-card-content>
             <form [formGroup]="activationForm">
-                <mat-form-field class="full-width"
-                    appearance="outline" color="accent">
+                <mat-form-field class="full-width" appearance="outline" color="accent">
                     <mat-label>Hash</mat-label>
                     <textarea matInput type="text" required formControlName="hash" rows="6"></textarea>
                     <!-- <mat-error *ngIf="address.hasError('invalidEthAddress') && !address.hasError('required')">
