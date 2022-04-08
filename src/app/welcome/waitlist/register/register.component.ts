@@ -10,6 +10,7 @@ export class RegisterComponent implements OnInit {
 
   types: string[];
   preregistrationForm: FormGroup;
+  submitted = false;
 
   constructor(private fb: FormBuilder) {
     this.types = CustomValidators.types;

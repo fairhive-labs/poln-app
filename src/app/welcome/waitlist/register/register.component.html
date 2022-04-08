@@ -1,5 +1,5 @@
 <div class="container">
-    <mat-card>
+    <mat-card *ngIf="submitted; else elseBlock">
         <mat-card-title>Preregistration - Wait list</mat-card-title>
         <mat-card-subtitle>Enter your Avalanche C-Chain Address, your Email Address and Select a User Type
         </mat-card-subtitle>
@@ -43,4 +43,17 @@
                 [disabled]="!preregistrationForm.valid">Submit</button>
         </mat-card-actions>
     </mat-card>
+    <ng-template #elseBlock>
+        <mat-card>
+            <mat-card-title>We need to validate your email !</mat-card-title>
+            <mat-card-subtitle> The preregistration form has been submitted but additionnal controls are required
+            </mat-card-subtitle>
+            <mat-card-content>
+                <p>
+                    Check your emails and complete the process as soon as possible...
+                </p>
+            </mat-card-content>
+        </mat-card>
+    </ng-template>
+
 </div>
