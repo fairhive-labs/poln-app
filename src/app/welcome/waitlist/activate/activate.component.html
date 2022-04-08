@@ -1,1 +1,45 @@
-<p>activate works!</p>
+<div class="container">
+    <mat-card *ngIf="!submitted; else elseBlock">
+        <mat-card-title>Email Activation</mat-card-title>
+        <mat-card-subtitle>Enter the Hash key received by email
+        </mat-card-subtitle>
+        <mat-card-content>
+            <form [formGroup]="activationForm">
+                <mat-form-field class="full-width"
+                    appearance="outline" color="accent">
+                    <mat-label>Hash</mat-label>
+                    <textarea matInput type="text" required formControlName="hash" rows="6"></textarea>
+                    <!-- <mat-error *ngIf="address.hasError('invalidEthAddress') && !address.hasError('required')">
+                        Please enter a valid C-Chain Address
+                    </mat-error> -->
+                    <mat-error *ngIf="hash.hasError('required')">
+                        Hash is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </form>
+            <mat-error *ngIf="submissionError">
+                {{submissionError}}
+            </mat-error>
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button mat-raised-button color="primary" (click)="submit()"
+                [disabled]="!activationForm.valid || progressing">Submit</button>
+        </mat-card-actions>
+        <mat-card-footer>
+            <mat-progress-bar *ngIf="progressing" mode="indeterminate"></mat-progress-bar>
+        </mat-card-footer>
+    </mat-card>
+    <ng-template #elseBlock>
+        <mat-card>
+            <mat-card-title>All done 🥳</mat-card-title>
+            <mat-card-subtitle>The preregistration process is now complete...
+            </mat-card-subtitle>
+            <mat-card-content>
+                <p>
+                    Welcome on board 🚀
+                </p>
+            </mat-card-content>
+        </mat-card>
+    </ng-template>
+
+</div>

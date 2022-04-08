@@ -19,7 +19,7 @@ const routes: Routes = [
     component: ActivateComponent
   },
   {
-    path: '', redirectTo: '/register', pathMatch: 'full'
+    path: '', redirectTo: '/activate', pathMatch: 'full'
   },
   {
     path: '**', component: PageNotFoundComponent

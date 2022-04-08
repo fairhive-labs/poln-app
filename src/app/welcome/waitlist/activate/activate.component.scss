@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+mat-card{
+    margin: 5%;
+    max-width: 400px;
+}
+
+.full-width{
+    width: 100%;
+    margin-bottom: 16px;
+}
