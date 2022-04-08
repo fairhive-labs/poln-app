@@ -13,9 +13,9 @@ export class PreregisterService {
 
   register(address: string, email: string, type: string): Observable<RegisterResponse> {
     return this.http.post<RegisterResponse>(`${this.url}/`, {
-      address: address,
-      email: email,
-      type: type,
+      address: address.trim(),
+      email: email.trim(),
+      type: type.trim(),
     })
       .pipe(
         retry(3)
@@ -23,7 +23,7 @@ export class PreregisterService {
   }
 
   activate(token: string, hash: string) {
-    return this.http.post<ActivateResponse>(`${this.url}/activate/${token}/${hash}`, null)
+    return this.http.post<ActivateResponse>(`${this.url}/activate/${token.trim()}/${hash.trim()}`, null)
       .pipe(
         retry(3)
       );
