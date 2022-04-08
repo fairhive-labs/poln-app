@@ -52,11 +52,15 @@
     <ng-template #elseBlock>
         <mat-card>
             <mat-card-title>We need to validate your email 😏</mat-card-title>
-            <mat-card-subtitle>The preregistration form has been successfully submitted but additionnal controls are now required.
+            <mat-card-subtitle>The preregistration form has been successfully submitted but additionnal controls are now
+                required.
             </mat-card-subtitle>
             <mat-card-content>
                 <p>
                     Check your emails and complete the process as soon as possible... no more than 20 seconds 😜
+                </p>
+                <p>
+                    We have sent an email to <code>{{email.value}}</code>
                 </p>
             </mat-card-content>
         </mat-card>
