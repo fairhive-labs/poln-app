@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -22,6 +22,18 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  get address() {
+    return this.preregistrationForm.get('address') as FormControl;
+  }
+
+  get email() {
+    return this.preregistrationForm.get('email') as FormControl;
+  }
+
+  get type() {
+    return this.preregistrationForm.get('type') as FormControl;
   }
 
   submit() {
