@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -9,15 +9,14 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class RegisterComponent implements OnInit {
 
   types: string[];
-  private readonly _types = "advisor agent client contributor investor mentor talent";
   preregistrationForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
-    this.types = this._types.split(" ").sort((t1, t2) => t1.localeCompare(t2));
+    this.types = CustomValidators.types;
     this.preregistrationForm = this.fb.group({
-      address: ['', Validators.required],
+      address: ['', [Validators.required, CustomValidators.ethAddress]],
       email: ['', [Validators.required, Validators.email]],
-      type: ['', Validators.required],
+      type: ['', [Validators.required, CustomValidators.supportedUserType]],
     });
   }
 
@@ -43,3 +42,16 @@ export class RegisterComponent implements OnInit {
 
 }
 
+class CustomValidators {
+  private static readonly _types = "advisor agent client contributor investor mentor talent";
+  static types = CustomValidators._types.split(" ").sort((t1, t2) => t1.localeCompare(t2));
+  static ethRegExp = /^0x[a-fA-F0-9]{40}$/;
+
+  static supportedUserType(control: AbstractControl): ValidationErrors | null {
+    return CustomValidators.types.includes(control.value) ? null : { incorrectUserType: { value: control.value } }
+  }
+
+  static ethAddress(control: AbstractControl): ValidationErrors | null {
+    return CustomValidators.ethRegExp.test(control.value) ? null : { invalidEthAddress: { value: control.value } }
+  }
+}

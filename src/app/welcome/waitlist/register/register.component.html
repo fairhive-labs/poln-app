@@ -9,22 +9,38 @@
                     appearance="outline" color="accent">
                     <mat-label>Avalanche C-Chain Address</mat-label>
                     <input matInput type="text" required formControlName="address">
+                    <mat-error *ngIf="address.hasError('invalidEthAddress') && !address.hasError('required')">
+                        Please enter a valid C-Chain Address
+                    </mat-error>
+                    <mat-error *ngIf="address.hasError('required')">
+                        C-Chain Address is <strong>required</strong>
+                    </mat-error>
                 </mat-form-field>
                 <mat-form-field hintLabel="Ex: john.doe@fairhive-labs.com" class="full-width" appearance="outline"
                     color="accent">
                     <mat-label>Email Address</mat-label>
                     <input matInput type="email" required formControlName="email">
+                    <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                        Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="email.hasError('required')">
+                        Email is <strong>required</strong>
+                    </mat-error>
                 </mat-form-field>
                 <mat-form-field class="full-width" appearance="outline" color="accent">
                     <mat-label>User Type</mat-label>
                     <mat-select required formControlName="type">
                         <mat-option *ngFor="let t of types" value="{{t}}">{{t | uppercase}}</mat-option>
                     </mat-select>
+                    <mat-error *ngIf="type.hasError('required')">
+                        User type is <strong>required</strong>
+                    </mat-error>
                 </mat-form-field>
             </form>
         </mat-card-content>
         <mat-card-actions align="end">
-            <button mat-raised-button color="primary" (click)="submit()" [disabled]="!preregistrationForm.valid">Submit</button>
+            <button mat-raised-button color="primary" (click)="submit()"
+                [disabled]="!preregistrationForm.valid">Submit</button>
         </mat-card-actions>
     </mat-card>
 </div>
