@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { ActivateComponent } from './activate.component';
 
@@ -20,6 +21,7 @@ describe('ActivateComponent', () => {
         MatCardModule,
         MatInputModule,
         ReactiveFormsModule,
+        RouterTestingModule,
         HttpClientTestingModule,
         MatProgressBarModule,
       ],
