@@ -5,6 +5,7 @@ import { RegisterComponent } from './register.component';
 import { MatInputModule } from '@angular/material/input';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -17,6 +18,7 @@ describe('RegisterComponent', () => {
         MatCardModule,
         MatInputModule,
         MatSelectModule,
+        ReactiveFormsModule,
       ],
       declarations: [RegisterComponent]
     })
