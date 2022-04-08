@@ -46,7 +46,6 @@
                 [disabled]="!preregistrationForm.valid || progressing">Submit</button>
         </mat-card-actions>
         <mat-card-footer>
-            <span>{{progressing}}</span>
             <span *ngIf="progressing">progress bar</span>
             <!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
         </mat-card-footer>

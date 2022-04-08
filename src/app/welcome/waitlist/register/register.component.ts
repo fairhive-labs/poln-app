@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       type: ['', [Validators.required, CustomValidators.supportedUserType]],
     });
+    console.log(this.preregistrationForm.controls);
   }
 
   ngOnInit(): void {
@@ -40,14 +41,16 @@ export class RegisterComponent implements OnInit {
     return this.preregistrationForm.get('type') as FormControl;
   }
 
+  get controls() {
+    return this.preregistrationForm.controls;
+  }
+
   submit() {
     if (this.preregistrationForm.valid) {
       this.submissionError = '';
 
       this.progressing = true;
-      this.address.disable();
-      this.email.disable();
-      this.type.disable();
+      Object.keys(this.controls).forEach(c => this.controls[c].disable());
 
       this.preregisterService.register(
         this.address.value,
@@ -56,9 +59,7 @@ export class RegisterComponent implements OnInit {
       ).pipe(
         finalize(() => {
           this.progressing = false;
-          this.address.enable();
-          this.email.enable();
-          this.type.enable();
+          Object.keys(this.controls).forEach(c => this.controls[c].enable());
         }),
         catchError(err => {
           console.error(err);
