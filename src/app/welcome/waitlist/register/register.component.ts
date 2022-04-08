@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -12,12 +12,12 @@ export class RegisterComponent implements OnInit {
   private readonly _types = "advisor agent client contributor investor mentor talent";
   preregistrationForm: FormGroup;
 
-  constructor() {
+  constructor(private fb: FormBuilder) {
     this.types = this._types.split(" ").sort((t1, t2) => t1.localeCompare(t2));
-    this.preregistrationForm = new FormGroup({
-      address: new FormControl(''),
-      email: new FormControl(''),
-      type: new FormControl('')
+    this.preregistrationForm = this.fb.group({
+      address: '',
+      email: '',
+      type: '',
     });
   }
 
