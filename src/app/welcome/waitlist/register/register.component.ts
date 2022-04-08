@@ -64,7 +64,7 @@ export class RegisterComponent implements OnInit {
         catchError(err => {
           console.error(err);
           this.submissionError = 'Oups, something goes wrong...';
-          return of({ hash: '' })
+          return of({ hash: null })
         }),
       ).subscribe(r => {
         if (r.hash) {
