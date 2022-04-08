@@ -7,6 +7,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -21,6 +22,7 @@ describe('RegisterComponent', () => {
         MatSelectModule,
         ReactiveFormsModule,
         HttpClientTestingModule,
+        MatProgressBarModule,
       ],
       declarations: [RegisterComponent]
     })
@@ -37,7 +39,7 @@ describe('RegisterComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should contain 7 types of user',()=>{
+  it('should contain 7 types of user', () => {
     expect(component.types).toBeTruthy();
     expect(component.types).toHaveSize(7);
   });

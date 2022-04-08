@@ -23,7 +23,6 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       type: ['', [Validators.required, CustomValidators.supportedUserType]],
     });
-    console.log(this.preregistrationForm.controls);
   }
 
   ngOnInit(): void {
@@ -68,7 +67,7 @@ export class RegisterComponent implements OnInit {
         }),
       ).subscribe(r => {
         if (r.hash) {
-          console.log(r.hash)
+          console.log(r.hash) // @TODO: store in localStorage
         }
       });
     }

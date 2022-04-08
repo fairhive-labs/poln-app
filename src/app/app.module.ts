@@ -27,7 +27,7 @@ import { ActivateComponent } from './welcome/waitlist/activate/activate.componen
 import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -60,6 +60,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatDividerModule,
     MatInputModule,
     MatSelectModule,
+    MatProgressBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
