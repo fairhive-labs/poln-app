@@ -24,5 +24,10 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  submit() {
+    //@TODO : use preregister service
+    console.log(this.preregistrationForm.value);
+  }
+
 }
 

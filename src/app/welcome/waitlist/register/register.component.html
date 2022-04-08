@@ -24,10 +24,7 @@
             </form>
         </mat-card-content>
         <mat-card-actions align="end">
-            <button mat-raised-button color="primary">Submit</button>
+            <button mat-raised-button color="primary" (click)="submit()" [disabled]="!preregistrationForm.valid">Submit</button>
         </mat-card-actions>
-        <mat-card-footer>
-            {{preregistrationForm.value | json}}
-        </mat-card-footer>
     </mat-card>
 </div>
