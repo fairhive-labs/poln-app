@@ -1,5 +1,5 @@
 <div class="container">
-    <mat-card *ngIf="submitted; else elseBlock">
+    <mat-card *ngIf="!submitted; else elseBlock">
         <mat-card-title>Preregistration - Wait list</mat-card-title>
         <mat-card-subtitle>Enter your Avalanche C-Chain Address, your Email Address and Select a User Type
         </mat-card-subtitle>
@@ -37,11 +37,19 @@
                     </mat-error>
                 </mat-form-field>
             </form>
+            <mat-error *ngIf="submissionError">
+                {{submissionError}}
+            </mat-error>
         </mat-card-content>
         <mat-card-actions align="end">
             <button mat-raised-button color="primary" (click)="submit()"
-                [disabled]="!preregistrationForm.valid">Submit</button>
+                [disabled]="!preregistrationForm.valid || progressing">Submit</button>
         </mat-card-actions>
+        <mat-card-footer>
+            <span>{{progressing}}</span>
+            <span *ngIf="progressing">progress bar</span>
+            <!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
+        </mat-card-footer>
     </mat-card>
     <ng-template #elseBlock>
         <mat-card>

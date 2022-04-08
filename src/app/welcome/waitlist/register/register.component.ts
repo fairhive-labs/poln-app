@@ -1,3 +1,5 @@
+import { catchError, finalize, of } from 'rxjs';
+import { PreregisterService } from './../preregister.service';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 
@@ -11,8 +13,10 @@ export class RegisterComponent implements OnInit {
   types: string[];
   preregistrationForm: FormGroup;
   submitted = false;
+  progressing = false;
+  submissionError = '';
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private preregisterService: PreregisterService) {
     this.types = CustomValidators.types;
     this.preregistrationForm = this.fb.group({
       address: ['', [Validators.required, CustomValidators.ethAddress]],
@@ -37,8 +41,36 @@ export class RegisterComponent implements OnInit {
   }
 
   submit() {
-    //@TODO : use preregister service
-    console.log(this.preregistrationForm.value);
+    if (this.preregistrationForm.valid) {
+      this.submissionError = '';
+
+      this.progressing = true;
+      this.address.disable();
+      this.email.disable();
+      this.type.disable();
+
+      this.preregisterService.register(
+        this.address.value,
+        this.email.value,
+        this.type.value
+      ).pipe(
+        finalize(() => {
+          this.progressing = false;
+          this.address.enable();
+          this.email.enable();
+          this.type.enable();
+        }),
+        catchError(err => {
+          console.error(err);
+          this.submissionError = 'Oups, something goes wrong...';
+          return of({ hash: '' })
+        }),
+      ).subscribe(r => {
+        if (r.hash) {
+          console.log(r.hash)
+        }
+      });
+    }
   }
 
 }
