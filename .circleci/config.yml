@@ -5,8 +5,10 @@ jobs:
   build:
     environment:
       IMAGE_NAME: fairhivelabs/landing-page
-    machine:
-      image: ubuntu-2004:202201-02
+    docker:
+      - image: cimg/node:17.9.0
+    # machine:
+      # image: ubuntu-2004:202201-02
     steps:
       - checkout
       - run:
