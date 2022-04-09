@@ -5,7 +5,8 @@ jobs:
   build:
     environment:
       IMAGE_NAME: fairhivelabs/landing-page
-    machine: true
+    machine:
+      image: ubuntu-2004:202201-02
     steps:
       - checkout
       - run:
