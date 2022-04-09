@@ -33,7 +33,7 @@ describe('PreregisterService', () => {
     expect(service.url).toBeTruthy();
   });
 
-  it('can POST to register endpoint', () => {
+  it('can http POST to register endpoint', () => {
     const url = service.url;
     const testData: RegisterResponse = { hash: 'h4Sh' };
     const email = 'jsie@trendev.fr';
@@ -50,7 +50,7 @@ describe('PreregisterService', () => {
     req.flush(testData);
   });
 
-  it('should fail', () => {
+  it('should fail register invalid user (invalid address)', () => {
     const url = service.url;
     const email = 'jsie@trendev.fr';
     const address = '0x';
@@ -73,13 +73,38 @@ describe('PreregisterService', () => {
 
   });
 
-  it('can POST to activate endpoint', () => {
+  it('can call register endpoint', () => {
+    const url = service.url;
+    const testData: RegisterResponse = { hash: 'h4Sh' };
+    const email = 'jsie@trendev.fr';
+    const address = '0x8ba1f109551bD432803012645Ac136ddd64DBA72';
+    const type = 'mentor';
+
+    service.register(address, email, type).subscribe(r => expect(r).toEqual(testData));
+    const req = httpTestingController.expectOne(`${url}/`);
+    expect(req.request.method).toEqual('POST');
+    req.flush(testData);
+  });
+
+  it('can http POST to activate endpoint', () => {
     const url = service.url;
     const token = 't0k3N';
     const hash = 'h4Sh';
     const testData: ActivateResponse = { token: token, activated: true };
 
     http.post<ActivateResponse>(`${url}/activate/${token}/${hash}`, null).subscribe(r => expect(r).toEqual(testData));
+    const req = httpTestingController.expectOne(`${url}/activate/${token}/${hash}`);
+    expect(req.request.method).toEqual('POST');
+    req.flush(testData);
+  });
+
+  it('can call activate endpoint', () => {
+    const url = service.url;
+    const token = 't0k3N';
+    const hash = 'h4Sh';
+    const testData: ActivateResponse = { token: token, activated: true };
+
+    service.activate(token, hash).subscribe(r => expect(r).toEqual(testData));
     const req = httpTestingController.expectOne(`${url}/activate/${token}/${hash}`);
     expect(req.request.method).toEqual('POST');
     req.flush(testData);
