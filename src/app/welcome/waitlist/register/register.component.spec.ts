@@ -5,10 +5,10 @@ import { RegisterComponent } from './register.component';
 import { MatInputModule } from '@angular/material/input';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormControl } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { Observable, of, throwError } from 'rxjs';
+import { of, throwError } from 'rxjs';
 import { PreregisterService } from '../preregister.service';
 
 describe('RegisterComponent', () => {
@@ -101,4 +101,34 @@ describe('RegisterComponent', () => {
     expect(component.email.enabled).toBeTrue();
     expect(component.type.enabled).toBeTrue();
   }));
+
+  it('should be a valid user type', () => {
+    component.type.setValue('talent');
+    expect(component.type.valid).toBeTrue();
+    component.type.setValue('fakeuser');
+    expect(component.type.valid).toBeFalse();
+    expect(component.type.hasError('incorrectUserType')).toBeTrue();
+    component.type.setValue('');
+    expect(component.type.hasError('required')).toBeTrue();
+  });
+
+  it('should be a valid eth address', () => {
+    component.address.setValue('0x8ba1f109551bD432803012645Ac136ddd64DBA72');
+    expect(component.address.valid).toBeTrue();
+    component.address.setValue('0x');
+    expect(component.address.valid).toBeFalse();
+    expect(component.address.hasError('invalidEthAddress')).toBeTrue();
+    component.address.setValue('');
+    expect(component.address.hasError('required')).toBeTrue();
+  });
+  it('should be a valid email address', () => {
+    component.email.setValue('john.doe@gmail.com');
+    expect(component.email.valid).toBeTrue();
+    component.email.setValue('john');
+    expect(component.email.valid).toBeFalse();
+    expect(component.email.hasError('email')).toBeTrue();
+    component.email.setValue('');
+    expect(component.email.hasError('required')).toBeTrue();
+  });
 });
+
