@@ -79,7 +79,7 @@ describe('RegisterComponent', () => {
     expect(component.type.enabled).toBeTrue();
   }));
 
-  it('should call submit() but display an error', fakeAsync(() => {
+  it('should call submit() and display an error', fakeAsync(() => {
     preregisterService.register.and.returnValue(throwError(() => new Error('something goes wrong')));
 
     const email = 'jsie@trendev.fr';
