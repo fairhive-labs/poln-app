@@ -121,6 +121,7 @@ describe('RegisterComponent', () => {
     component.address.setValue('');
     expect(component.address.hasError('required')).toBeTrue();
   });
+  
   it('should be a valid email address', () => {
     component.email.setValue('john.doe@gmail.com');
     expect(component.email.valid).toBeTrue();

@@ -82,4 +82,10 @@ describe('ActivateComponent', () => {
     expect(component.hash.enabled).toBeTrue();
   }));
 
+  it('should be a valid hash', () => {
+    component.hash.setValue('h4sH');
+    expect(component.hash.valid).toBeTrue();
+    component.hash.setValue('');
+    expect(component.hash.hasError('required')).toBeTrue();
+  });
 });
