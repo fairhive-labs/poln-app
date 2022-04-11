@@ -5,8 +5,8 @@
         </mat-card-subtitle>
         <mat-card-content>
             <form [formGroup]="preregistrationForm">
-                <mat-form-field hintLabel="For Airdrops / Giveaways" class="full-width"
-                    appearance="outline" color="accent">
+                <mat-form-field hintLabel="For Airdrops / Giveaways" class="full-width" appearance="outline"
+                    color="accent">
                     <mat-label>Avalanche C-Chain Address</mat-label>
                     <input matInput type="text" required formControlName="address">
                     <mat-error *ngIf="address.hasError('invalidEthAddress') && !address.hasError('required')">
@@ -16,8 +16,8 @@
                         C-Chain Address is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
-                <mat-form-field hintLabel="Encrypted and Secured, for further Contacts" class="full-width" appearance="outline"
-                    color="accent">
+                <mat-form-field hintLabel="Encrypted and Secured, for further Contacts" class="full-width"
+                    appearance="outline" color="accent">
                     <mat-label>Email Address</mat-label>
                     <input matInput type="email" required formControlName="email">
                     <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
@@ -42,6 +42,7 @@
             </mat-error>
         </mat-card-content>
         <mat-card-actions align="end">
+            <button mat-raised-button routerLink="/">Home</button>
             <button mat-raised-button color="primary" (click)="submit()"
                 [disabled]="!preregistrationForm.valid || progressing">Submit</button>
         </mat-card-actions>

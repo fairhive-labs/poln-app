@@ -21,6 +21,7 @@
             </mat-error>
         </mat-card-content>
         <mat-card-actions align="end">
+            <button mat-raised-button routerLink="/">Home</button>
             <button mat-raised-button color="primary" (click)="submit()"
                 [disabled]="!activationForm.valid || progressing">Submit</button>
         </mat-card-actions>
