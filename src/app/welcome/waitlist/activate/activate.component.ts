@@ -25,6 +25,11 @@ export class ActivateComponent implements OnInit {
     this.activationForm = this.fb.group({
       hash: ['', Validators.required],
     });
+
+    let h = this.preregisterService.loadHash();
+    if (h) {
+      this.hash.setValue(h);
+    }
   }
 
   ngOnInit(): void {
@@ -61,6 +66,7 @@ export class ActivateComponent implements OnInit {
         }),
       ).subscribe(r => {
         if (r.activated) {
+          this.preregisterService.clearHash();
           this.submitted = true;
         }
       });
