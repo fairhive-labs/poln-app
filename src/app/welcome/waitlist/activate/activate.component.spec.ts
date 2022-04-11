@@ -15,8 +15,10 @@ describe('ActivateComponent', () => {
   let component: ActivateComponent;
   let fixture: ComponentFixture<ActivateComponent>;
   let preregisterService: jasmine.SpyObj<PreregisterService>;
+  const hash = 'Th1sASuP3RhA5h';
   beforeEach(async () => {
-    preregisterService = jasmine.createSpyObj('PreregisterService', ['activate','loadHash','clearHash']);
+    preregisterService = jasmine.createSpyObj('PreregisterService', ['activate', 'loadHash', 'clearHash']);
+    preregisterService.loadHash.and.returnValue(hash);
     await TestBed.configureTestingModule({
       imports: [
         NoopAnimationsModule,
@@ -87,5 +89,10 @@ describe('ActivateComponent', () => {
     expect(component.hash.valid).toBeTrue();
     component.hash.setValue('');
     expect(component.hash.hasError('required')).toBeTrue();
+  });
+
+  it('should load hash from local storage', () => {
+    expect(component.hash.value).toEqual(hash);
+    expect(component.hash.valid).toBeTrue();
   });
 });
