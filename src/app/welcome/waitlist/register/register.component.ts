@@ -67,7 +67,7 @@ export class RegisterComponent implements OnInit {
         }),
       ).subscribe(r => {
         if (r.hash) {
-          console.log(r.hash) // @TODO: save in localStorage
+          this.preregisterService.saveHash(r.hash);
           this.submitted = true;
         }
       });

@@ -8,6 +8,7 @@ import { Observable, retry } from 'rxjs';
 export class PreregisterService {
 
   readonly url = "https://polar-plains-98105.herokuapp.com";
+  readonly HASH_KEY = btoa('fairhive_landing_page_registration_hash');
 
   constructor(private http: HttpClient) { }
 
@@ -27,6 +28,18 @@ export class PreregisterService {
       .pipe(
         retry(3)
       );
+  }
+
+  saveHash(hash: string) {
+    localStorage.setItem(this.HASH_KEY, hash);
+  }
+
+  loadHash(): string | null {
+    return localStorage.getItem(this.HASH_KEY);
+  }
+
+  clearHash() {
+    return localStorage.removeItem(this.HASH_KEY);
   }
 }
 

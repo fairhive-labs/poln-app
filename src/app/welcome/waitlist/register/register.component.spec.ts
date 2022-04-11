@@ -16,7 +16,7 @@ describe('RegisterComponent', () => {
   let fixture: ComponentFixture<RegisterComponent>;
   let preregisterService: jasmine.SpyObj<PreregisterService>;
   beforeEach(async () => {
-    preregisterService = jasmine.createSpyObj('PreregisterService', ['register']);
+    preregisterService = jasmine.createSpyObj('PreregisterService', ['register','saveHash']);
     await TestBed.configureTestingModule({
       imports: [
         NoopAnimationsModule,
