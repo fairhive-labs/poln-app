@@ -1,19 +1,19 @@
 <div class="container">
     <mat-card *ngIf="!submitted; else elseBlock">
         <mat-card-title>Preregistration - Waitlist</mat-card-title>
-        <mat-card-subtitle>Enter your Avalanche C-Chain Address, your Email Address and Select a User Type
+        <mat-card-subtitle>Enter your ETH Address, your Email Address and Select a User Type
         </mat-card-subtitle>
         <mat-card-content>
             <form [formGroup]="preregistrationForm">
                 <mat-form-field hintLabel="For Airdrops / Giveaways" class="full-width" appearance="outline"
                     color="accent">
-                    <mat-label>Avalanche C-Chain Address</mat-label>
+                    <mat-label>ETH Address</mat-label>
                     <input matInput type="text" required formControlName="address">
                     <mat-error *ngIf="address.hasError('invalidEthAddress') && !address.hasError('required')">
-                        Please enter a valid C-Chain Address
+                        Please enter a valid ETH Address
                     </mat-error>
                     <mat-error *ngIf="address.hasError('required')">
-                        C-Chain Address is <strong>required</strong>
+                        ETH Address is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field hintLabel="Encrypted and Secured, for further Contacts" class="full-width"
