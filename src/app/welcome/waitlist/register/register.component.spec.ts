@@ -80,7 +80,7 @@ describe('RegisterComponent', () => {
   }));
 
   it('should call submit() and display an error', fakeAsync(() => {
-    preregisterService.register.and.returnValue(throwError(() => new Error('something goes wrong')));
+    preregisterService.register.and.returnValue(throwError(() => new Error(`error thrown as expected, it's cool !`)));
 
     const email = 'jsie@trendev.fr';
     const address = '0x8ba1f109551bD432803012645Ac136ddd64DBA72';
