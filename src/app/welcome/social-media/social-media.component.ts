@@ -20,30 +20,30 @@ export class SocialMediaComponent implements OnInit {
       name: 'Telegram',
       link: 'https://t.me/fairhive'
     },
-    {
-      name: 'Medium',
-      link: 'https://medium.com/fairhive'
-    },
-    {
-      name: 'Email',
-      link: 'mailto:contact@fairhive-labs.com?subject=Hello fairhive'
-    },
+    // {
+    //   name: 'Medium',
+    //   link: 'https://medium.com/fairhive'
+    // },
+    // {
+    //   name: 'Email',
+    //   link: 'mailto:contact@fairhive-labs.com?subject=Hello fairhive'
+    // },
     {
       name: 'Github',
       link: 'https://github.com/fairhive-labs'
     },
-    {
-      name: 'Instagram',
-      link: 'https://www.instagram.com/fairhive/'
-    },
+    // {
+    //   name: 'Instagram',
+    //   link: 'https://www.instagram.com/fairhive/'
+    // },
     {
       name: 'LinkedIn',
       link: 'https://www.linkedin.com/company/fairhive'
     },
-    {
-      name: 'Facebook',
-      link: 'https://www.facebook.com/fairhive/'
-    }
+    // {
+    //   name: 'Facebook',
+    //   link: 'https://www.facebook.com/fairhive/'
+    // }
   ];
 
   constructor() { }
