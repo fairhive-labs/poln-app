@@ -1,4 +1,4 @@
-import { PreregisterService, UsersMap } from './../../welcome/waitlist/preregister.service';
+import { PreregisterService } from './../../welcome/waitlist/preregister.service';
 import { Component, OnInit } from '@angular/core';
 import { switchMap, take, catchError, of } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -11,7 +11,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UsersComponent implements OnInit {
 
   total = 0;
-  users: UsersMap | undefined;
+  displayedColumns: string[] = ['type', 'count'];
+  dataSource: UsersData[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -35,12 +36,17 @@ export class UsersComponent implements OnInit {
     ).subscribe(
       res => {
         this.total = res.total;
-        this.users = res.users;
+        if (res.users != undefined) {
+          type ObjectKey = keyof typeof res.users;
+          Object.keys(res.users).forEach(k => this.dataSource.push({ type: k, count: res.users[k as ObjectKey] }));
+        }
       }
     );
-
-
-
   }
 
+}
+
+interface UsersData {
+  type: string;
+  count: number;
 }
