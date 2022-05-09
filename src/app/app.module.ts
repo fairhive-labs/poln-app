@@ -1,3 +1,4 @@
+import { SharedModule } from './shared.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -52,15 +53,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatCardModule,
-    MatDividerModule,
-    MatInputModule,
-    MatSelectModule,
-    MatProgressBarModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

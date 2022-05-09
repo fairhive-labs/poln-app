@@ -1,3 +1,4 @@
+import { SharedModule } from './../shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -11,7 +12,8 @@ import { UsersComponent } from './users/users.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    SharedModule,
   ]
 })
 export class AdminModule { }
