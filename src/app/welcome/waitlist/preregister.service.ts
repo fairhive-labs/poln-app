@@ -30,6 +30,15 @@ export class PreregisterService {
       );
   }
 
+  // @TODO : unit test
+  count(path1: string, path2: string) {
+    return this.http.get<CountResponse>(`${this.url}/${path1}/${path2}/count?mime=json
+    `)
+      .pipe(
+        retry(3)
+      );
+  }
+
   saveHash(hash: string) {
     localStorage.setItem(this.HASH_KEY, hash);
   }
@@ -50,4 +59,19 @@ export interface RegisterResponse {
 export interface ActivateResponse {
   activated: boolean;
   token: string;
+}
+
+export interface CountResponse {
+  total: number;
+  users: UsersMap
+}
+
+export interface UsersMap {
+  advisor: number;
+  agent: number;
+  client: number;
+  contributor: number;
+  investor: number;
+  mentor: number;
+  talent: number;
 }

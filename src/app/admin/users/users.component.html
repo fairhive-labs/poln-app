@@ -1,5 +1,13 @@
 <div class="container">
     <mat-card>
-        <mat-card-title></mat-card-title>
+        <mat-card-title>Waitlist - User count</mat-card-title>
+        <mat-card-subtitle>Total: {{ total }}</mat-card-subtitle>
+        <mat-card-content>
+            <!-- TODO : add table -->
+            {{users | json}}
+            <div *ngIf="!users">
+                <p>NO DATA</p>
+            </div>
+        </mat-card-content>
     </mat-card>
 </div>

@@ -4,7 +4,7 @@ import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
   {
-    path: 'users',
+    path: ':path1/:path2/users',
     component: UsersComponent
   },
   {
