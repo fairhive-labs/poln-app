@@ -13,8 +13,11 @@ import { MatSort } from '@angular/material/sort';
 export class UsersComponent implements OnInit {
 
   total = 0;
+  path1: string;
+  path2: string;
+
   displayedColumns: string[] = ['type', 'count'];
-  dataSource: MatTableDataSource<UsersData> =  new MatTableDataSource<UsersData>([]);
+  dataSource: MatTableDataSource<UsersData> = new MatTableDataSource<UsersData>([]);
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
@@ -25,9 +28,9 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.pipe(
       switchMap(params => {
-        const path1 = params.get('path1')!;
-        const path2 = params.get('path2')!;
-        return this.preregisterService.count(path1, path2)
+        this.path1 = params.get('path1')!;
+        this.path2 = params.get('path2')!;
+        return this.preregisterService.count(this.path1, this.path2)
           .pipe(
             take(1),
             catchError(err => of({
@@ -48,6 +51,10 @@ export class UsersComponent implements OnInit {
         }
       }
     );
+  }
+
+  get url(): string {
+    return this.preregisterService.getListEndpointURL(this.path1, this.path2);
   }
 }
 

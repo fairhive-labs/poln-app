@@ -50,6 +50,10 @@ export class PreregisterService {
   clearHash() {
     return localStorage.removeItem(this.HASH_KEY);
   }
+
+  getListEndpointURL(path1: string, path2: string) {
+    return `${this.url}/${path1}/${path2}/list?mime=csv`;
+  }
 }
 
 export interface RegisterResponse {
