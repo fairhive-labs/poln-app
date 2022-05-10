@@ -4,6 +4,7 @@ import { switchMap, take, catchError, of } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { ChartData, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-users',
@@ -19,6 +20,18 @@ export class UsersComponent implements OnInit {
   displayedColumns: string[] = ['type', 'count'];
   dataSource: MatTableDataSource<UsersData> = new MatTableDataSource<UsersData>([]);
   @ViewChild(MatSort) sort: MatSort;
+
+  // Doughnut
+  public doughnutChartData: ChartData<'doughnut'> = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+    datasets: [
+      { label: 'Mobiles', data: [1000, 1200, 1050, 2000, 500], },
+      { label: 'Laptop', data: [200, 100, 400, 50, 90], },
+      { label: 'AC', data: [500, 400, 350, 450, 650], },
+      { label: 'Headset', data: [1200, 1500, 1020, 1600, 900], },
+    ],
+  };
+  public doughnutChartType: ChartType = 'doughnut';
 
   constructor(
     private route: ActivatedRoute,
