@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { UsersComponent } from './users/users.component';
-
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -14,6 +14,7 @@ import { UsersComponent } from './users/users.component';
     CommonModule,
     AdminRoutingModule,
     SharedModule,
+    NgChartsModule,
   ]
 })
 export class AdminModule { }
