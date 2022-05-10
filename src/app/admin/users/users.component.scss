@@ -7,7 +7,7 @@
 mat-card {
     margin: 5%;
     max-width: 400px;
-    min-width: 350px;
+    min-width: 320px;
 }
 
 table {
@@ -21,14 +21,33 @@ table {
 .mat-column-count {
     width: 32px;
     text-align: center;
-    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
+th.mat-header-cell:last-of-type,
+td.mat-cell:last-of-type,
+td.mat-footer-cell:last-of-type {
     padding-right: 4px;
 }
 
-th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+th.mat-header-cell:first-of-type,
+td.mat-cell:first-of-type,
+td.mat-footer-cell:first-of-type {
     padding-left: 4px;
 }
 
+.agent {
+    color: #ffe864 !important;
+}
+
+.client {
+    color: #f36b6b !important;
+}
+
+.mentor {
+    color: #a9c2f0 !important;
+}
+
+.talent {
+    color: #ffbe96 !important;
+}
