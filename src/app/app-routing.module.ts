@@ -22,9 +22,8 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
   },
-  //@TODO reset redirectTo to '/welcome'
   {
-    path: '', redirectTo: '/admin', pathMatch: 'full'
+    path: '', redirectTo: '/welcome', pathMatch: 'full'
   },
   {
     path: '**', component: PageNotFoundComponent
