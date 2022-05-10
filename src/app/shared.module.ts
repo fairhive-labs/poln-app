@@ -8,6 +8,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+
 
 @NgModule({
   declarations: [],
@@ -21,6 +23,7 @@ import { MatTableModule } from '@angular/material/table';
     MatSelectModule,
     MatProgressBarModule,
     MatTableModule,
+    MatSortModule,
   ],
   exports: [
     MatToolbarModule,
@@ -32,6 +35,7 @@ import { MatTableModule } from '@angular/material/table';
     MatSelectModule,
     MatProgressBarModule,
     MatTableModule,
+    MatSortModule,
   ]
 })
 export class SharedModule { }

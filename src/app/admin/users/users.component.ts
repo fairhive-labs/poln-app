@@ -1,7 +1,9 @@
 import { PreregisterService } from './../../welcome/waitlist/preregister.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { switchMap, take, catchError, of } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-users',
@@ -12,7 +14,8 @@ export class UsersComponent implements OnInit {
 
   total = 0;
   displayedColumns: string[] = ['type', 'count'];
-  dataSource: UsersData[] = [];
+  dataSource: MatTableDataSource<UsersData> =  new MatTableDataSource<UsersData>([]);
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     private route: ActivatedRoute,
@@ -38,12 +41,14 @@ export class UsersComponent implements OnInit {
         this.total = res.total;
         if (res.users != undefined) {
           type ObjectKey = keyof typeof res.users;
-          Object.keys(res.users).forEach(k => this.dataSource.push({ type: k, count: res.users[k as ObjectKey] }));
+          const ds: UsersData[] = []
+          Object.keys(res.users).forEach(k => ds.push({ type: k, count: res.users[k as ObjectKey] }));
+          this.dataSource = new MatTableDataSource<UsersData>(ds);
+          this.dataSource.sort = this.sort;
         }
       }
     );
   }
-
 }
 
 interface UsersData {

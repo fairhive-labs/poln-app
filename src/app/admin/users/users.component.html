@@ -3,14 +3,14 @@
         <mat-card-title>Waitlist - User count</mat-card-title>
         <mat-card-subtitle>Total: {{ total }}</mat-card-subtitle>
         <mat-card-content>
-            <table *ngIf="dataSource.length; else nodata" mat-table [dataSource]="dataSource">
+            <table *ngIf="dataSource; else nodata" mat-table [dataSource]="dataSource" matSort>
                 <ng-container matColumnDef="type">
-                    <th mat-header-cell *matHeaderCellDef>Type</th>
-                    <td mat-cell *matCellDef="let element">{{element.type}}</td>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Type</th>
+                    <td mat-cell *matCellDef="let element">{{element.type | uppercase}}</td>
                 </ng-container>
 
                 <ng-container matColumnDef="count">
-                    <th mat-header-cell *matHeaderCellDef>Count</th>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Count</th>
                     <td mat-cell *matCellDef="let element">{{element.count}}</td>
                 </ng-container>
 
