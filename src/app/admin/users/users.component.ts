@@ -22,16 +22,13 @@ export class UsersComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   // Doughnut
-  public doughnutChartData: ChartData<'doughnut'> = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+  public data: ChartData<'doughnut'> = {
+    labels: [],
     datasets: [
-      { label: 'Mobiles', data: [1000, 1200, 1050, 2000, 500], },
-      { label: 'Laptop', data: [200, 100, 400, 50, 90], },
-      { label: 'AC', data: [500, 400, 350, 450, 650], },
-      { label: 'Headset', data: [1200, 1500, 1020, 1600, 900], },
+      { label: 'Users', data: [], },
     ],
   };
-  public doughnutChartType: ChartType = 'doughnut';
+  public chartType: ChartType = 'doughnut';
 
   constructor(
     private route: ActivatedRoute,
@@ -57,13 +54,26 @@ export class UsersComponent implements OnInit {
         this.total = res.total;
         if (res.users != undefined) {
           type ObjectKey = keyof typeof res.users;
-          const ds: UsersData[] = []
-          Object.keys(res.users).forEach(k => ds.push({ type: k, count: res.users[k as ObjectKey] }));
+          const ds: UsersData[] = [];
+
+          Object.keys(res.users)
+            .sort((a, b) => a.localeCompare(b))
+            .forEach(k => {
+              this.data.labels!.push(k);
+              const count = res.users[k as ObjectKey];
+              ds.push({ type: k, count: count });
+              this.data.datasets[0]!.data.push(count);
+            });
+
           this.dataSource = new MatTableDataSource<UsersData>(ds);
           this.dataSource.sort = this.sort;
         }
       }
     );
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
   }
 
   get url(): string {
