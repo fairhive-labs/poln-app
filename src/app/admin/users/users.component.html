@@ -3,7 +3,7 @@
         <mat-card-title>Waitlist - User count</mat-card-title>
         <mat-card-subtitle>Total: {{ total }}</mat-card-subtitle>
         <mat-card-content>
-            <table *ngIf="dataSource.data.length; else nodata" mat-table [dataSource]="dataSource" matSort>
+            <table *ngIf="dataSource; else nodata" mat-table [dataSource]="dataSource" matSort>
                 <ng-container matColumnDef="type">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header>Type</th>
                     <td mat-cell *matCellDef="let element">
@@ -29,14 +29,14 @@
             <ng-template #nodata>
                 <p>NO DATA</p>
             </ng-template>
-            <div style="display: block;" *ngIf="dataSource.data.length">
+            <div *ngIf="dataSource?.data?.length" style="display: block;">
                 <canvas baseChart [data]="data" [type]="chartType">
                 </canvas>
             </div>
         </mat-card-content>
         <mat-card-actions align="end">
-            <a mat-raised-button href="{{url}}" color="primary" style="width: 100%;"
-                [disabled]="!dataSource.data.length" target="_blank">Download Users list - CSV</a>
+            <a mat-raised-button href="{{url}}" color="primary" style="width: 100%;" [disabled]="!dataSource"
+                target="_blank">Download Users list - CSV</a>
         </mat-card-actions>
     </mat-card>
 </div>

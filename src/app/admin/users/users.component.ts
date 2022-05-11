@@ -52,6 +52,7 @@ export class UsersComponent implements OnInit {
     ).subscribe(
       res => {
         this.total = res.total;
+
         if (res.users != undefined) {
           type ObjectKey = keyof typeof res.users;
           const ds: UsersData[] = [];
@@ -70,10 +71,6 @@ export class UsersComponent implements OnInit {
         }
       }
     );
-  }
-
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
   }
 
   get url(): string {
