@@ -38,5 +38,8 @@
             <a mat-raised-button href="{{url}}" color="primary" style="width: 100%;" [disabled]="!dataSource"
                 target="_blank">Download Users list - CSV</a>
         </mat-card-actions>
+        <mat-card-footer>
+            <mat-progress-bar *ngIf="progressing" mode="indeterminate"></mat-progress-bar>
+        </mat-card-footer>
     </mat-card>
 </div>

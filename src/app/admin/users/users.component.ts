@@ -1,6 +1,6 @@
 import { PreregisterService } from './../../welcome/waitlist/preregister.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { switchMap, take, catchError, of } from 'rxjs';
+import { switchMap, take, catchError, of, finalize } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
@@ -16,6 +16,8 @@ export class UsersComponent implements OnInit {
   total = 0;
   path1: string;
   path2: string;
+
+  progressing = true;
 
   displayedColumns: string[] = ['type', 'count'];
   dataSource: MatTableDataSource<UsersData> = new MatTableDataSource<UsersData>([]);
@@ -68,7 +70,8 @@ export class UsersComponent implements OnInit {
             catchError(err => of({
               total: 0,
               users: undefined,
-            }))
+            })),
+            finalize(() => this.progressing = false)
           );
       })
     ).subscribe(
