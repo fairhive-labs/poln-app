@@ -22,7 +22,7 @@ export class UsersComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   // Doughnut
-  public data: ChartData<'pie'> = {
+  public data: ChartData<'doughnut'> = {
     labels: [],
     datasets: [
       {
@@ -33,7 +33,7 @@ export class UsersComponent implements OnInit {
     ],
   };
 
-  public chartType: ChartType = 'pie';
+  public chartType: ChartType = 'doughnut';
   public chartOptions: ChartOptions = {
     responsive: true,
     plugins: {
