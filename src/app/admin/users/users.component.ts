@@ -28,14 +28,10 @@ export class UsersComponent implements OnInit {
       {
         label: 'Users',
         data: [],
+        backgroundColor: [],
       },
     ],
   };
-  // public chartColors = [
-  //   {
-  //     backgroundColor: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
-  //   },
-  // ];
 
   public chartType: ChartType = 'pie';
   public chartOptions: ChartOptions = {
@@ -68,6 +64,9 @@ export class UsersComponent implements OnInit {
         if (res.users != undefined) {
           type ObjectKey = keyof typeof res.users;
           const ds: UsersData[] = [];
+          const colors = this.data.datasets[0]!.backgroundColor as string[]
+          this.data.datasets[0]!.hoverBackgroundColor = colors;
+          this.data.datasets[0]!.hoverBorderColor = ['black'];
 
           Object.keys(res.users)
             .sort((a, b) => a.localeCompare(b))
@@ -76,7 +75,23 @@ export class UsersComponent implements OnInit {
               const count = res.users[k as ObjectKey];
               ds.push({ type: k, count: count });
               this.data.datasets[0]!.data.push(count);
-              // this.data.datasets[0]!.backgroundColor
+              switch (k) {
+                case 'agent':
+                  colors.push('#ffe864');
+                  break;
+                case 'client':
+                  colors.push('#f36b6b');
+                  break;
+                case 'mentor':
+                  colors.push('#a9c2f0');
+                  break;
+                case 'talent':
+                  colors.push('#ffbe96');
+                  break;
+                default:
+                  colors.push('grey');
+              }
+
             });
 
           this.dataSource = new MatTableDataSource<UsersData>(ds);
