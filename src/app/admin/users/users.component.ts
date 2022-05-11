@@ -36,6 +36,20 @@ export class UsersComponent implements OnInit {
   public chartType: ChartType = 'pie';
   public chartOptions: ChartOptions = {
     responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: "Users Count / Type",
+        padding: 16,
+      },
+      legend: {
+        position: 'bottom',
+        labels: {
+          boxWidth: 15,
+          font: { weight: 'bold' }
+        }
+      }
+    }
   }
 
   constructor(
