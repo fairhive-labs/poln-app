@@ -4,7 +4,7 @@ import { switchMap, take, catchError, of } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
-import { ChartData, ChartType } from 'chart.js';
+import { ChartData, ChartOptions, ChartType, Color } from 'chart.js';
 
 @Component({
   selector: 'app-users',
@@ -22,13 +22,25 @@ export class UsersComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   // Doughnut
-  public data: ChartData<'doughnut'> = {
+  public data: ChartData<'pie'> = {
     labels: [],
     datasets: [
-      { label: 'Users', data: [], },
+      {
+        label: 'Users',
+        data: [],
+      },
     ],
   };
-  public chartType: ChartType = 'doughnut';
+  // public chartColors = [
+  //   {
+  //     backgroundColor: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
+  //   },
+  // ];
+
+  public chartType: ChartType = 'pie';
+  public chartOptions: ChartOptions = {
+    responsive: true,
+  }
 
   constructor(
     private route: ActivatedRoute,
@@ -64,6 +76,7 @@ export class UsersComponent implements OnInit {
               const count = res.users[k as ObjectKey];
               ds.push({ type: k, count: count });
               this.data.datasets[0]!.data.push(count);
+              // this.data.datasets[0]!.backgroundColor
             });
 
           this.dataSource = new MatTableDataSource<UsersData>(ds);

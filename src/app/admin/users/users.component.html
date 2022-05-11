@@ -30,7 +30,7 @@
                 <p>NO DATA</p>
             </ng-template>
             <div *ngIf="dataSource?.data?.length" style="display: block;">
-                <canvas baseChart [data]="data" [type]="chartType">
+                <canvas baseChart [data]="data" [type]="chartType" [options]="chartOptions">
                 </canvas>
             </div>
         </mat-card-content>
