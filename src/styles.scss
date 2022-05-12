@@ -11,6 +11,8 @@ $fairhive-dark-theme: mat.define-dark-theme((color: (primary: $fairhive-primary,
             warn: $fairhive-warn,
         )));
 
+// @debug $fairhive-dark-theme;
+
 $fairhive-light-theme: mat.define-light-theme((color: (primary: $fairhive-primary,
             accent: $fairhive-accent,
             warn: $fairhive-warn,
@@ -201,7 +203,7 @@ $fairhive-dark-theme: (color: (primary: (50: #ffebee,
             selected-button: #171d27,
             selected-disabled-button: #313e57,
             disabled-button-toggle: black,
-            unselected-chip: #36435d,//
+            unselected-chip: #36435d, //
             disabled-list-option: rgba(255, 255, 255, 0.12),
             tooltip: #36435d, //
         ),
