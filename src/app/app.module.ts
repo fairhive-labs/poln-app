@@ -21,6 +21,7 @@ import { RegisterComponent } from './welcome/waitlist/register/register.componen
 import { ActivateComponent } from './welcome/waitlist/activate/activate.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { IntroVideoComponent } from './welcome/intro-video/intro-video.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DeckWpComponent,
     PageNotFoundComponent,
     RegisterComponent,
-    ActivateComponent
+    ActivateComponent,
+    IntroVideoComponent
   ],
   imports: [
     BrowserModule,

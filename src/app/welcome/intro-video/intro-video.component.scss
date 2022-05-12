@@ -1,0 +1,10 @@
+iframe {
+    margin-bottom: 64px;
+}
+
+@media all and (max-width: 550px) {
+    iframe {
+        width: 350px;
+        height: 350px;
+    }
+}
