@@ -1,7 +1,7 @@
 import { catchError, finalize, of } from 'rxjs';
 import { PreregisterService } from './../preregister.service';
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -11,12 +11,12 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors,
 export class RegisterComponent implements OnInit {
 
   types: string[];
-  preregistrationForm: FormGroup;
+  preregistrationForm: UntypedFormGroup;
   submitted = false;
   progressing = false;
   submissionError = '';
 
-  constructor(private fb: FormBuilder, private preregisterService: PreregisterService) {
+  constructor(private fb: UntypedFormBuilder, private preregisterService: PreregisterService) {
     this.types = CustomValidators.types;
     this.preregistrationForm = this.fb.group({
       address: ['', [Validators.required, CustomValidators.ethAddress]],
@@ -29,15 +29,15 @@ export class RegisterComponent implements OnInit {
   }
 
   get address() {
-    return this.preregistrationForm.get('address') as FormControl;
+    return this.preregistrationForm.get('address') as UntypedFormControl;
   }
 
   get email() {
-    return this.preregistrationForm.get('email') as FormControl;
+    return this.preregistrationForm.get('email') as UntypedFormControl;
   }
 
   get type() {
-    return this.preregistrationForm.get('type') as FormControl;
+    return this.preregistrationForm.get('type') as UntypedFormControl;
   }
 
   get controls() {

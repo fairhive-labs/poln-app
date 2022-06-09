@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, UntypedFormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, finalize, of } from 'rxjs';
 import { PreregisterService } from '../preregister.service';
@@ -11,7 +11,7 @@ import { PreregisterService } from '../preregister.service';
 })
 export class ActivateComponent implements OnInit {
 
-  activationForm: FormGroup;
+  activationForm: UntypedFormGroup;
   submitted = false;
   progressing = false;
   submissionError = '';
@@ -20,7 +20,7 @@ export class ActivateComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private preregisterService: PreregisterService) {
     this.activationForm = this.fb.group({
       hash: ['', Validators.required],
@@ -37,7 +37,7 @@ export class ActivateComponent implements OnInit {
   }
 
   get hash() {
-    return this.activationForm.get('hash') as FormControl;
+    return this.activationForm.get('hash') as UntypedFormControl;
   }
 
   get controls() {
