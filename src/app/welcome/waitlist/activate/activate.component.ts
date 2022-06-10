@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormControl, FormBuilder, FormGroup, UntypedFormGroup, NonNullableFormBuilder } from '@angular/forms';
+import { Validators, NonNullableFormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, finalize, of } from 'rxjs';
 import { PreregisterService } from '../preregister.service';

@@ -49,7 +49,7 @@ describe('RegisterComponent', () => {
   });
 
   it('should contain 3 formcontrol in form group', () => {
-    expect(Object.keys(component.controls)).toHaveSize(3);
+    expect(Object.keys(component.preregistrationForm.controls)).toHaveSize(3);
   });
 
   it('should call submit()', fakeAsync(() => {
