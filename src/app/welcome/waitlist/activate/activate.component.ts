@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators, UntypedFormControl } from '@angular/forms';
+import { Validators, FormControl, FormBuilder, FormGroup, UntypedFormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, finalize, of } from 'rxjs';
 import { PreregisterService } from '../preregister.service';
@@ -11,21 +11,20 @@ import { PreregisterService } from '../preregister.service';
 })
 export class ActivateComponent implements OnInit {
 
-  activationForm: UntypedFormGroup;
   submitted = false;
   progressing = false;
   submissionError = '';
   token: string;
 
+  activationForm = this.fb.group({
+    hash: ['', Validators.required],
+  });
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private fb: UntypedFormBuilder,
+    private fb: FormBuilder,
     private preregisterService: PreregisterService) {
-    this.activationForm = this.fb.group({
-      hash: ['', Validators.required],
-    });
-
     let h = this.preregisterService.loadHash();
     if (h) {
       this.hash.setValue(h);
@@ -37,19 +36,16 @@ export class ActivateComponent implements OnInit {
   }
 
   get hash() {
-    return this.activationForm.get('hash') as UntypedFormControl;
+    return this.activationForm.get('hash') as FormControl<string>;
   }
 
-  get controls() {
-    return this.activationForm.controls;
-  }
 
   submit() {
     if (this.activationForm.valid) {
       this.submissionError = '';
 
       this.progressing = true;
-      Object.keys(this.controls).forEach(c => this.controls[c].disable());
+      this.hash.disable();
 
       this.preregisterService.activate(
         this.token,
@@ -57,7 +53,7 @@ export class ActivateComponent implements OnInit {
       ).pipe(
         finalize(() => {
           this.progressing = false;
-          Object.keys(this.controls).forEach(c => this.controls[c].enable());
+          this.hash.enable();
         }),
         catchError(err => {
           console.error(err);

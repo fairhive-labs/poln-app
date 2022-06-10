@@ -46,7 +46,7 @@ describe('ActivateComponent', () => {
   });
 
   it('should contain 1 formcontrol in form group', () => {
-    expect(Object.keys(component.controls)).toHaveSize(1);
+    expect(Object.keys(component.activationForm.controls)).toHaveSize(1);
   });
 
   it('should call submit()', fakeAsync(() => {
