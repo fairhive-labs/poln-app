@@ -22,6 +22,9 @@ class SocialMediaStubComponent { }
 @Component({ selector: 'app-deck-wp', template: '<h2>social-media</h2>' })
 class DeckWpStubComponent { }
 
+@Component({ selector: 'app-intro-video', template: '<h2>video</h2>' })
+class IntroVideoStubComponent { }
+
 describe('WelcomeComponent', () => {
   let component: WelcomeComponent;
   let fixture: ComponentFixture<WelcomeComponent>;
@@ -37,7 +40,8 @@ describe('WelcomeComponent', () => {
         ActorsStubComponent,
         ValuesStubComponent,
         SocialMediaStubComponent,
-        DeckWpStubComponent
+        DeckWpStubComponent,
+        IntroVideoStubComponent
       ]
     })
       .compileComponents();
