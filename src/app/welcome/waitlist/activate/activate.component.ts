@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormControl, FormBuilder, FormGroup, UntypedFormGroup } from '@angular/forms';
+import { Validators, FormControl, FormBuilder, FormGroup, UntypedFormGroup, NonNullableFormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, finalize, of } from 'rxjs';
 import { PreregisterService } from '../preregister.service';
@@ -23,7 +23,7 @@ export class ActivateComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private fb: FormBuilder,
+    private fb: NonNullableFormBuilder,
     private preregisterService: PreregisterService) {
     let h = this.preregisterService.loadHash();
     if (h) {
@@ -36,7 +36,7 @@ export class ActivateComponent implements OnInit {
   }
 
   get hash() {
-    return this.activationForm.get('hash') as FormControl<string>;
+    return this.activationForm.get('hash')!;
   }
 
 
