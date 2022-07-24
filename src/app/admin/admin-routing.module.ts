@@ -6,10 +6,7 @@ const routes: Routes = [
   {
     path: ':path1/:path2/users',
     component: UsersComponent
-  },
-  {
-    path: '', redirectTo: 'users'
-  },
+  }
 ];
 
 @NgModule({
