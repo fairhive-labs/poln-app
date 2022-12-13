@@ -57,8 +57,4 @@ describe('WelcomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should contain a message', () => {
-    expect(component.message).toBeTruthy();
-    expect(component.message).toBe('Decentralized protocol for blockchain recruitment and trusted projects')
-  });
 });

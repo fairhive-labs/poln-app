@@ -28,9 +28,9 @@ describe('SocialMediaComponent', () => {
     expect(component.media.length).toBeGreaterThan(0);
   });
 
-  it('should contain Discord media', () => {
+  it('should contain GitHub media', () => {
     expect(component.media).toBeTruthy();
-    const i = component.media.findIndex(s => s.name.toLocaleLowerCase() === 'discord');
+    const i = component.media.findIndex(s => s.name.toLocaleLowerCase() === 'github');
     expect(i).not.toEqual(-1);
   });
 });
