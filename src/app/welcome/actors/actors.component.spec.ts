@@ -1,4 +1,4 @@
-import { MatCardModule } from '@angular/material/card';
+import { MatLegacyCardModule as MatCardModule } from '@angular/material/legacy-card';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ActorsComponent } from './actors.component';
