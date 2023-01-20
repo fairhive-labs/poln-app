@@ -8,45 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class SocialMediaComponent implements OnInit {
 
   media: SocialMedia[] = [
-    // {
-    //   name: 'Twitter',
-    //   link: 'https://twitter.com/fairhive'
-    // },
-    // {
-    //   name: 'Discord',
-    //   link: 'https://discord.com/invite/a3QxGfvsS7'
-    // },
-    // {
-    //   name: 'Telegram',
-    //   link: 'https://t.me/fairhive'
-    // },
-    // {
-    //   name: 'Medium',
-    //   link: 'https://medium.com/fairhive'
-    // },
-    {
-      name: 'Email',
+        {
+      name: 'email',
       link: 'mailto:contact@fairhive-labs.com?subject=Hello fairhive'
     },
     {
-      name: 'GitHub',
+      name: 'github',
       link: 'https://github.com/fairhive-labs'
     },{
-      name:'Slack (exp. Feb 19, 2023)',
+      name:'slack (exp. Feb 19, 2023)',
       link: 'https://join.slack.com/t/fairhive-labs/shared_invite/zt-1nphgbo6c-pvpLmCTXS9QqDiL5yTcbSA'
     }
-    // {
-    //   name: 'Instagram',
-    //   link: 'https://www.instagram.com/fairhive/'
-    // },
-    // {
-    //   name: 'LinkedIn',
-    //   link: 'https://www.linkedin.com/company/fairhive'
-    // },
-    // {
-    //   name: 'Facebook',
-    //   link: 'https://www.facebook.com/fairhive/'
-    // }
   ];
 
   constructor() { }
