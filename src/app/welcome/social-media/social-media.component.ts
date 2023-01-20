@@ -31,7 +31,10 @@ export class SocialMediaComponent implements OnInit {
     {
       name: 'GitHub',
       link: 'https://github.com/fairhive-labs'
-    },
+    },{
+      name:'Slack (exp. Feb 19, 2023)',
+      link: 'https://join.slack.com/t/fairhive-labs/shared_invite/zt-1nphgbo6c-pvpLmCTXS9QqDiL5yTcbSA'
+    }
     // {
     //   name: 'Instagram',
     //   link: 'https://www.instagram.com/fairhive/'
