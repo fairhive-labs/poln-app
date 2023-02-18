@@ -81,7 +81,7 @@ describe('PreregisterService', () => {
     const type = 'mentor';
 
     service.register(address, email, type).subscribe(r => expect(r).toEqual(testData));
-    const req = httpTestingController.expectOne(`${url}/`);
+    const req = httpTestingController.expectOne(`${url}/register`);
     expect(req.request.method).toEqual('POST');
     req.flush(testData);
   });

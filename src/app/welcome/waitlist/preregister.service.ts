@@ -13,7 +13,7 @@ export class PreregisterService {
   constructor(private http: HttpClient) { }
 
   register(address: string, email: string, type: string): Observable<RegisterResponse> {
-    return this.http.post<RegisterResponse>(`${this.url}/`, {
+    return this.http.post<RegisterResponse>(`${this.url}/register`, {
       address: address.trim(),
       email: email.trim(),
       type: type.trim(),
