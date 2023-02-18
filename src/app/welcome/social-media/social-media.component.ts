@@ -8,16 +8,21 @@ import { Component, OnInit } from '@angular/core';
 export class SocialMediaComponent implements OnInit {
 
   media: SocialMedia[] = [
-        {
+    {
       name: 'email',
       link: 'mailto:contact@fairhive-labs.com?subject=Hello fairhive'
     },
     {
       name: 'github',
       link: 'https://github.com/fairhive-labs'
-    },{
-      name:'slack (exp. Feb 19, 2023)',
+    },
+    {
+      name: 'slack (exp. Feb 19, 2023)',
       link: 'https://join.slack.com/t/fairhive-labs/shared_invite/zt-1nphgbo6c-pvpLmCTXS9QqDiL5yTcbSA'
+    },
+    {
+      name: 'medium',
+      link: 'https://medium.com/fairhive'
     }
   ];
 
