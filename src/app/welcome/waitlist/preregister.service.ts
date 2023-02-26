@@ -12,6 +12,7 @@ export class PreregisterService {
 
   constructor(private http: HttpClient) { }
 
+  //@TODO: add sponsor address + control return value
   register(address: string, email: string, type: string): Observable<RegisterResponse> {
     return this.http.post<RegisterResponse>(`${this.url}/register`, {
       address: address.trim(),
@@ -23,6 +24,7 @@ export class PreregisterService {
       );
   }
 
+  //@TODO: control return value
   activate(token: string, hash: string) {
     return this.http.post<ActivateResponse>(`${this.url}/activate/${token.trim()}/${hash.trim()}`, null)
       .pipe(
@@ -30,7 +32,7 @@ export class PreregisterService {
       );
   }
 
-  // @TODO : unit test
+  // @TODO : control return value + unit test
   count(path1: string, path2: string) {
     return this.http.get<CountResponse>(`${this.url}/${path1}/${path2}/count?mime=json
     `)
