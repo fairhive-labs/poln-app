@@ -36,6 +36,18 @@
                         User type is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
+                <!-- @TODO : add sponsor field -->
+                <!-- <mat-form-field hintLabel="For Airdrops / Giveaways" class="full-width" appearance="outline"
+                    color="accent">
+                    <mat-label>ETH Address</mat-label>
+                    <input matInput type="text" required formControlName="address">
+                    <mat-error *ngIf="address.hasError('invalidEthAddress') && !address.hasError('required')">
+                        Please enter a valid ETH Address
+                    </mat-error>
+                    <mat-error *ngIf="address.hasError('required')">
+                        ETH Address is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field> -->
             </form>
             <mat-error *ngIf="submissionError">
                 {{submissionError}}

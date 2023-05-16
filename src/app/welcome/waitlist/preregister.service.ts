@@ -12,12 +12,12 @@ export class PreregisterService {
 
   constructor(private http: HttpClient) { }
 
-  //@TODO: add sponsor address + control return value
-  register(address: string, email: string, type: string): Observable<RegisterResponse> {
+  register(address: string, email: string, type: string, sponsor: string): Observable<RegisterResponse> {
     return this.http.post<RegisterResponse>(`${this.url}/register`, {
       address: address.trim(),
       email: email.trim(),
       type: type.trim(),
+      sponsor: sponsor.trim()
     })
       .pipe(
         retry(3)
