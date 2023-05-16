@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
     address: ['', [Validators.required, CustomValidators.ethAddress]],
     email: ['', [Validators.required, Validators.email]],
     type: ['', [Validators.required, CustomValidators.supportedUserType]],
+    sponsor: ['', [Validators.required, CustomValidators.ethAddress]],
   });
 
   constructor(private fb: NonNullableFormBuilder,
@@ -41,6 +42,9 @@ export class RegisterComponent implements OnInit {
     return this.preregistrationForm.get('type')!;
   }
 
+  get sponsor() {
+    return this.preregistrationForm.get('sponsor')!;
+  }
 
   submit() {
     if (this.preregistrationForm.valid) {
@@ -50,17 +54,20 @@ export class RegisterComponent implements OnInit {
       this.address.disable();
       this.email.disable();
       this.type.disable();
+      this.sponsor.disable();
 
       this.preregisterService.register(
         this.address.value,
         this.email.value,
-        this.type.value
+        this.type.value,
+        this.sponsor.value,
       ).pipe(
         finalize(() => {
           this.progressing = false;
           this.address.enable();
           this.email.enable();
           this.type.enable();
+          this.sponsor.enable();
         }),
         catchError(err => {
           console.error(err);

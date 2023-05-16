@@ -9,6 +9,8 @@ describe('PreregisterService', () => {
   let http: HttpClient;
   let httpTestingController: HttpTestingController;
 
+  const sponsor = '0xE3C3691DB5f5185F37A3f98e5ec76403B2d10c3E';
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -44,6 +46,7 @@ describe('PreregisterService', () => {
       address: address,
       email: email,
       type: type,
+      sponsor: sponsor
     }).subscribe(r => expect(r).toEqual(testData));
     const req = httpTestingController.expectOne(`${url}/`);
     expect(req.request.method).toEqual('POST');
@@ -61,6 +64,7 @@ describe('PreregisterService', () => {
       address: address,
       email: email,
       type: type,
+      sponsor: sponsor
     }).subscribe({
       next: () => fail('should have failed with the 400 error'),
       error: (error: HttpErrorResponse) => {
@@ -80,7 +84,7 @@ describe('PreregisterService', () => {
     const address = '0x8ba1f109551bD432803012645Ac136ddd64DBA72';
     const type = 'mentor';
 
-    service.register(address, email, type).subscribe(r => expect(r).toEqual(testData));
+    service.register(address, email, type, sponsor).subscribe(r => expect(r).toEqual(testData));
     const req = httpTestingController.expectOne(`${url}/register`);
     expect(req.request.method).toEqual('POST');
     req.flush(testData);
@@ -90,7 +94,14 @@ describe('PreregisterService', () => {
     const url = service.url;
     const token = 't0k3N';
     const hash = 'h4Sh';
-    const testData: ActivateResponse = { token: token, activated: true };
+    const testData: ActivateResponse = {
+      address: "0xeth_address_01",
+      email: "john.doe@gmail.com",
+      uuid: "uu1d",
+      timestamp: 1684253919,
+      type: "talent",
+      sponsor: sponsor,
+    };
 
     http.post<ActivateResponse>(`${url}/activate/${token}/${hash}`, null).subscribe(r => expect(r).toEqual(testData));
     const req = httpTestingController.expectOne(`${url}/activate/${token}/${hash}`);
@@ -102,7 +113,14 @@ describe('PreregisterService', () => {
     const url = service.url;
     const token = 't0k3N';
     const hash = 'h4Sh';
-    const testData: ActivateResponse = { token: token, activated: true };
+    const testData: ActivateResponse = {
+      address: "0xeth_address_01",
+      email: "john.doe@gmail.com",
+      uuid: "uu1d",
+      timestamp: 1684253919,
+      type: "talent",
+      sponsor: sponsor,
+    };
 
     service.activate(token, hash).subscribe(r => expect(r).toEqual(testData));
     const req = httpTestingController.expectOne(`${url}/activate/${token}/${hash}`);

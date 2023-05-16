@@ -15,6 +15,9 @@ describe('RegisterComponent', () => {
   let component: RegisterComponent;
   let fixture: ComponentFixture<RegisterComponent>;
   let preregisterService: jasmine.SpyObj<PreregisterService>;
+
+  const sponsor = '0xE3C3691DB5f5185F37A3f98e5ec76403B2d10c3E';
+
   beforeEach(async () => {
     preregisterService = jasmine.createSpyObj('PreregisterService', ['register','saveHash']);
     await TestBed.configureTestingModule({
@@ -48,8 +51,8 @@ describe('RegisterComponent', () => {
     expect(component.types).toHaveSize(7);
   });
 
-  it('should contain 3 formcontrol in form group', () => {
-    expect(Object.keys(component.preregistrationForm.controls)).toHaveSize(3);
+  it('should contain 4 formcontrol in form group', () => {
+    expect(Object.keys(component.preregistrationForm.controls)).toHaveSize(4);
   });
 
   it('should call submit()', fakeAsync(() => {
@@ -65,6 +68,7 @@ describe('RegisterComponent', () => {
     component.address.setValue(address);
     component.email.setValue(email);
     component.type.setValue(type);
+    component.sponsor.setValue(sponsor);
     expect(component.preregistrationForm.valid).toBeTrue();
     component.submit();
 
@@ -77,6 +81,7 @@ describe('RegisterComponent', () => {
     expect(component.address.enabled).toBeTrue();
     expect(component.email.enabled).toBeTrue();
     expect(component.type.enabled).toBeTrue();
+    expect(component.sponsor.enabled).toBeTrue();
   }));
 
   it('should call submit() and display an error', fakeAsync(() => {
@@ -89,6 +94,7 @@ describe('RegisterComponent', () => {
     component.address.setValue(address);
     component.email.setValue(email);
     component.type.setValue(type);
+    component.sponsor.setValue(sponsor);
     expect(component.preregistrationForm.valid).toBeTrue();
     component.submit();
 
@@ -100,6 +106,7 @@ describe('RegisterComponent', () => {
     expect(component.address.enabled).toBeTrue();
     expect(component.email.enabled).toBeTrue();
     expect(component.type.enabled).toBeTrue();
+    expect(component.sponsor.enabled).toBeTrue();
   }));
 
   it('should be a valid user type', () => {
@@ -130,6 +137,16 @@ describe('RegisterComponent', () => {
     expect(component.email.hasError('email')).toBeTrue();
     component.email.setValue('');
     expect(component.email.hasError('required')).toBeTrue();
+  });
+
+  it('should be a valid sponsor address', () => {
+    component.address.setValue(sponsor);
+    expect(component.address.valid).toBeTrue();
+    component.address.setValue('0x');
+    expect(component.address.valid).toBeFalse();
+    expect(component.address.hasError('invalidEthAddress')).toBeTrue();
+    component.address.setValue('');
+    expect(component.address.hasError('required')).toBeTrue();
   });
 });
 

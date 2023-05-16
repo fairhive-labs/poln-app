@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '@env/environment';
 import { Observable, retry } from 'rxjs';
 
 @Injectable({
@@ -7,16 +8,17 @@ import { Observable, retry } from 'rxjs';
 })
 export class PreregisterService {
 
-  readonly url = "https://polar-plains-98105.herokuapp.com";
+  readonly url = environment.preregisterURL;
   readonly HASH_KEY = btoa('fairhive_landing_page_registration_hash');
 
   constructor(private http: HttpClient) { }
 
-  register(address: string, email: string, type: string): Observable<RegisterResponse> {
+  register(address: string, email: string, type: string, sponsor: string) {
     return this.http.post<RegisterResponse>(`${this.url}/register`, {
       address: address.trim(),
       email: email.trim(),
       type: type.trim(),
+      sponsor: sponsor.trim()
     })
       .pipe(
         retry(3)
@@ -30,7 +32,7 @@ export class PreregisterService {
       );
   }
 
-  // @TODO : unit test
+  // @TODO : control return value + unit test
   count(path1: string, path2: string) {
     return this.http.get<CountResponse>(`${this.url}/${path1}/${path2}/count?mime=json
     `)
@@ -61,8 +63,12 @@ export interface RegisterResponse {
 }
 
 export interface ActivateResponse {
-  activated: boolean;
-  token: string;
+  address: string;
+  email: string;
+  uuid: string;
+  timestamp: number;
+  type: string;
+  sponsor: string;
 }
 
 export interface CountResponse {

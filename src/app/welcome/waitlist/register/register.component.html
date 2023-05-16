@@ -1,13 +1,13 @@
 <div class="container">
     <mat-card *ngIf="!submitted; else elseBlock">
-        <mat-card-title>Preregistration - Waitlist</mat-card-title>
-        <mat-card-subtitle>Enter your ETH Address, your Email Address and Select a User Type
+        <mat-card-title>Waitlist</mat-card-title>
+        <mat-card-subtitle>Enter your ETH Address, your Email Address, Select a Category and Enter your Sponsor's ETH Address
         </mat-card-subtitle>
         <mat-card-content>
             <form [formGroup]="preregistrationForm">
                 <mat-form-field hintLabel="For Airdrops / Giveaways" class="full-width" appearance="outline"
                     color="accent">
-                    <mat-label>ETH Address</mat-label>
+                    <mat-label>Your ETH Address</mat-label>
                     <input matInput type="text" required formControlName="address">
                     <mat-error *ngIf="address.hasError('invalidEthAddress') && !address.hasError('required')">
                         Please enter a valid ETH Address
@@ -16,9 +16,9 @@
                         ETH Address is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
-                <mat-form-field hintLabel="Encrypted and Secured, for further contacts" class="full-width"
+                <mat-form-field hintLabel="Encrypted and Secured, for further communication" class="full-width"
                     appearance="outline" color="accent">
-                    <mat-label>Email Address</mat-label>
+                    <mat-label>Your Email Address</mat-label>
                     <input matInput type="email" required formControlName="email">
                     <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
                         Please enter a valid email address
@@ -27,13 +27,24 @@
                         Email is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
-                <mat-form-field class="full-width" appearance="outline" color="accent">
-                    <mat-label>User Type</mat-label>
+                <mat-form-field hintLabel="Users are organized into different categories" class="full-width" appearance="outline" color="accent">
+                    <mat-label>Your Category</mat-label>
                     <mat-select required formControlName="type">
                         <mat-option *ngFor="let t of types" value="{{t}}">{{t | uppercase}}</mat-option>
                     </mat-select>
                     <mat-error *ngIf="type.hasError('required')">
-                        User type is <strong>required</strong>
+                        Category is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field hintLabel="You MUST be co-opted by a pre-registred member" class="full-width" appearance="outline"
+                    color="accent">
+                    <mat-label>Your Sponsor's ETH Address</mat-label>
+                    <input matInput type="text" required formControlName="sponsor">
+                    <mat-error *ngIf="sponsor.hasError('invalidEthAddress') && !sponsor.hasError('required')">
+                        Please enter a valid ETH Address
+                    </mat-error>
+                    <mat-error *ngIf="sponsor.hasError('required')">
+                        ETH Address is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
             </form>
@@ -58,7 +69,8 @@
             </mat-card-subtitle>
             <mat-card-content>
                 <p>
-                    Check your emails (+spams) and complete the process as soon as possible... no more than 20 seconds 😜
+                    Check your emails (+spams) and complete the process as soon as possible... no more than 20 seconds
+                    😜
                 </p>
                 <p>
                     We have sent an email to <code>{{email.value}}</code>

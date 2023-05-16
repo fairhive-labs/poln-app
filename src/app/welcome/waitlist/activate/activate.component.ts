@@ -1,3 +1,4 @@
+import { ActivateResponse } from './../preregister.service';
 import { Component, OnInit } from '@angular/core';
 import { Validators, NonNullableFormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -58,12 +59,14 @@ export class ActivateComponent implements OnInit {
         catchError(err => {
           console.error(err);
           this.submissionError = 'Oups, something goes wrong... Try again ?';
-          return of({ activated: false })
+          return of({} as ActivateResponse)
         }),
       ).subscribe(r => {
-        if (r.activated) {
+        if (r.uuid) {
           this.preregisterService.clearHash();
           this.submitted = true;
+          //@TODO: use it for on-chain transaction
+          console.log(r);
         }
       });
     }
