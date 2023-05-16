@@ -94,7 +94,14 @@ describe('PreregisterService', () => {
     const url = service.url;
     const token = 't0k3N';
     const hash = 'h4Sh';
-    const testData: ActivateResponse = { token: token, activated: true };
+    const testData: ActivateResponse = {
+      address: "0xeth_address_01",
+      email: "john.doe@gmail.com",
+      uuid: "uu1d",
+      timestamp: 1684253919,
+      type: "talent",
+      sponsor: sponsor,
+    };
 
     http.post<ActivateResponse>(`${url}/activate/${token}/${hash}`, null).subscribe(r => expect(r).toEqual(testData));
     const req = httpTestingController.expectOne(`${url}/activate/${token}/${hash}`);
@@ -106,7 +113,14 @@ describe('PreregisterService', () => {
     const url = service.url;
     const token = 't0k3N';
     const hash = 'h4Sh';
-    const testData: ActivateResponse = { token: token, activated: true };
+    const testData: ActivateResponse = {
+      address: "0xeth_address_01",
+      email: "john.doe@gmail.com",
+      uuid: "uu1d",
+      timestamp: 1684253919,
+      type: "talent",
+      sponsor: sponsor,
+    };
 
     service.activate(token, hash).subscribe(r => expect(r).toEqual(testData));
     const req = httpTestingController.expectOne(`${url}/activate/${token}/${hash}`);

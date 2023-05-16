@@ -51,9 +51,13 @@ describe('ActivateComponent', () => {
 
   it('should call submit()', fakeAsync(() => {
     const activateResponse = {
-      token: 't0k3N',
-      activated: true
-    }
+      address: "0xeth_address_01",
+      email: "john.doe@gmail.com",
+      uuid: "uu1d",
+      timestamp: 1684253919,
+      type: "talent",
+      sponsor: '0xE3C3691DB5f5185F37A3f98e5ec76403B2d10c3E',
+    };
     preregisterService.activate.and.returnValue(of(activateResponse));
 
     component.hash.setValue('h4SH');
