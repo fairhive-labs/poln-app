@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  title: 'fairhive'
+  title: 'fairhive',
+  preregisterURL: 'http://localhost:8080',
 };
 
 /*

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '@env/environment';
 import { Observable, retry } from 'rxjs';
 
 @Injectable({
@@ -7,7 +8,7 @@ import { Observable, retry } from 'rxjs';
 })
 export class PreregisterService {
 
-  readonly url = "https://polar-plains-98105.herokuapp.com";
+  readonly url = environment.preregisterURL;
   readonly HASH_KEY = btoa('fairhive_landing_page_registration_hash');
 
   constructor(private http: HttpClient) { }
