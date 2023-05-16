@@ -15,6 +15,9 @@ describe('RegisterComponent', () => {
   let component: RegisterComponent;
   let fixture: ComponentFixture<RegisterComponent>;
   let preregisterService: jasmine.SpyObj<PreregisterService>;
+
+  const sponsor = '0xE3C3691DB5f5185F37A3f98e5ec76403B2d10c3E';
+
   beforeEach(async () => {
     preregisterService = jasmine.createSpyObj('PreregisterService', ['register','saveHash']);
     await TestBed.configureTestingModule({
@@ -61,7 +64,6 @@ describe('RegisterComponent', () => {
     const email = 'jsie@trendev.fr';
     const address = '0x8ba1f109551bD432803012645Ac136ddd64DBA72';
     const type = 'mentor';
-    const sponsor = '0xE3C3691DB5f5185F37A3f98e5ec76403B2d10c3E';
 
     component.address.setValue(address);
     component.email.setValue(email);
@@ -88,7 +90,6 @@ describe('RegisterComponent', () => {
     const email = 'jsie@trendev.fr';
     const address = '0x8ba1f109551bD432803012645Ac136ddd64DBA72';
     const type = 'mentor';
-    const sponsor = '0xE3C3691DB5f5185F37A3f98e5ec76403B2d10c3E';
 
     component.address.setValue(address);
     component.email.setValue(email);
@@ -138,9 +139,8 @@ describe('RegisterComponent', () => {
     expect(component.email.hasError('required')).toBeTrue();
   });
 
-  // @TODO : test sponsor field
-  xit('should be a valid eth address', () => {
-    component.address.setValue('0x8ba1f109551bD432803012645Ac136ddd64DBA72');
+  it('should be a valid sponsor address', () => {
+    component.address.setValue(sponsor);
     expect(component.address.valid).toBeTrue();
     component.address.setValue('0x');
     expect(component.address.valid).toBeFalse();
