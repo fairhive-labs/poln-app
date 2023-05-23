@@ -1,5 +1,5 @@
 <div class="container">
-    <mat-card *ngIf="!submitted; else elseBlock">
+    <mat-card appearance="outlined" *ngIf="!submitted; else elseBlock">
         <mat-card-title>Waitlist</mat-card-title>
         <mat-card-subtitle>Enter your ETH Address, your Email Address, Select a Category and Enter your Sponsor's ETH Address
         </mat-card-subtitle>
@@ -62,7 +62,7 @@
         </mat-card-footer>
     </mat-card>
     <ng-template #elseBlock>
-        <mat-card>
+        <mat-card appearance="outlined">
             <mat-card-title>We need to validate your email 😏</mat-card-title>
             <mat-card-subtitle>The preregistration form has been successfully submitted but additionnal controls are now
                 required.
