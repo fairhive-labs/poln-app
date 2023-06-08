@@ -9,7 +9,19 @@ mat-card{
     max-width: 400px;
 }
 
+.title {
+    margin: 0;
+}
+
+mat-error {
+    font-size: 75%;
+}
+
 .full-width{
     width: 100%;
     margin-bottom: 16px;
+}
+
+.action {
+    margin-left: 8px;
 }
