@@ -4,6 +4,10 @@
     align-items: center;
 }
 
+a {
+    text-decoration: none;
+}
+
 mat-card {
     margin-top: 16px;
     margin-bottom: 16px;
@@ -26,15 +30,15 @@ table {
     font-family: 'Courier New', Courier, monospace;
 }
 
-th.mat-header-cell:last-of-type,
-td.mat-cell:last-of-type,
-td.mat-footer-cell:last-of-type {
+th.mat-mdc-header-cell:last-of-type,
+td.mat-mdc-cell:last-of-type,
+td.mat-mdc-footer-cell:last-of-type {
     padding-right: 4px;
 }
 
-th.mat-header-cell:first-of-type,
-td.mat-cell:first-of-type,
-td.mat-footer-cell:first-of-type {
+th.mat-mdc-header-cell:first-of-type,
+td.mat-mdc-cell:first-of-type,
+td.mat-mdc-footer-cell:first-of-type {
     padding-left: 4px;
 }
 
