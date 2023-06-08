@@ -4,7 +4,7 @@ import { switchMap, take, catchError, of, finalize } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
-import { ChartData, ChartOptions, ChartType, Color } from 'chart.js';
+import { ChartData, ChartOptions, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-users',
@@ -46,8 +46,9 @@ export class UsersComponent implements OnInit {
       },
       legend: {
         position: 'bottom',
+        align: 'start',
         labels: {
-          boxWidth: 15,
+          usePointStyle: true,
           font: { weight: 'bold' }
         }
       }

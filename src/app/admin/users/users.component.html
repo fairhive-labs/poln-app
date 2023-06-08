@@ -1,7 +1,9 @@
 <div class="container">
     <mat-card appearance="outlined">
-        <mat-card-title>Waitlist - User count</mat-card-title>
-        <mat-card-subtitle>Total: {{ total }}</mat-card-subtitle>
+        <mat-card-header>
+            <mat-card-title class="mat-headline-5 title">Waitlist - User count</mat-card-title>
+            <mat-card-subtitle class="mat-subtitle-1">Total: {{ total }}</mat-card-subtitle>
+        </mat-card-header>
         <mat-card-content>
             <table *ngIf="dataSource.data.length; else nodata" mat-table [dataSource]="dataSource" matSort>
                 <ng-container matColumnDef="type">
