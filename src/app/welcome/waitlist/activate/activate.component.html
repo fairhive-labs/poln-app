@@ -1,5 +1,5 @@
 <div class="container">
-    <mat-card *ngIf="!submitted; else elseBlock">
+    <mat-card appearance="outlined" *ngIf="!submitted; else elseBlock">
         <mat-card-title>Email Activation</mat-card-title>
         <mat-card-subtitle>Enter the Hash key received by email
         </mat-card-subtitle>
@@ -27,7 +27,7 @@
         </mat-card-footer>
     </mat-card>
     <ng-template #elseBlock>
-        <mat-card>
+        <mat-card appearance="outlined">
             <mat-card-title>All done 🥳</mat-card-title>
             <mat-card-subtitle>The preregistration process is now complete...
             </mat-card-subtitle>
