@@ -13,14 +13,14 @@
     margin-left: 8px;
 }
 
-.mat-card {
+.mat-mdc-card {
     margin-bottom: 16px;
     width: 450px;
     min-height: 300px;
 }
 
 @media all and (max-width: 500px) {
-    .mat-card {
+    .mat-mdc-card {
         width: 350px;
     }
 }
