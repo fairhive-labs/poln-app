@@ -14,12 +14,13 @@ export class RegisterComponent implements OnInit {
   submitted = false;
   progressing = false;
   submissionError = '';
+  defaultSponsor = '0xE3C3691DB5f5185F37A3f98e5ec76403B2d10c3E';
 
   preregistrationForm = this.fb.group({
     address: ['', [Validators.required, CustomValidators.ethAddress]],
     email: ['', [Validators.required, Validators.email]],
     type: ['', [Validators.required, CustomValidators.supportedUserType]],
-    sponsor: ['', [Validators.required, CustomValidators.ethAddress]],
+    sponsor: [this.defaultSponsor, [Validators.required, CustomValidators.ethAddress]],
   });
 
   constructor(private fb: NonNullableFormBuilder,

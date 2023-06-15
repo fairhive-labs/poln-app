@@ -19,7 +19,7 @@ describe('RegisterComponent', () => {
   const sponsor = '0xE3C3691DB5f5185F37A3f98e5ec76403B2d10c3E';
 
   beforeEach(async () => {
-    preregisterService = jasmine.createSpyObj('PreregisterService', ['register','saveHash']);
+    preregisterService = jasmine.createSpyObj('PreregisterService', ['register', 'saveHash']);
     await TestBed.configureTestingModule({
       imports: [
         NoopAnimationsModule,
@@ -44,6 +44,12 @@ describe('RegisterComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should contain valid default sponsor', () => {
+    expect(component.defaultSponsor).toBeTruthy();
+    expect(component.sponsor.valid).toBeTrue();
+
   });
 
   it('should contain 7 types of user', () => {
@@ -128,7 +134,7 @@ describe('RegisterComponent', () => {
     component.address.setValue('');
     expect(component.address.hasError('required')).toBeTrue();
   });
-  
+
   it('should be a valid email address', () => {
     component.email.setValue('john.doe@gmail.com');
     expect(component.email.valid).toBeTrue();
