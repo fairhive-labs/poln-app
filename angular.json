@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "landing-page": {
+    "poln-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/landing-page",
+            "outputPath": "dist/poln-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "landing-page:build:production"
+              "browserTarget": "poln-app:build:production"
             },
             "development": {
-              "browserTarget": "landing-page:build:development"
+              "browserTarget": "poln-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "landing-page:build"
+            "browserTarget": "poln-app:build"
           }
         },
         "test": {
@@ -111,7 +111,7 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "/landing-page/",
+            "baseHref": "/poln-app/",
             "name": "_whyvrafvr",
             "email": "jsie@trendev.fr",
             "noSilent": true,
