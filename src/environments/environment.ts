@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  title: 'fairhive',
+  title: 'poln',
   preregisterURL: 'http://localhost:8080',
 };
 

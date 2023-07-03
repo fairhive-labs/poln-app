@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  title: 'fairhive',
+  title: 'poln',
   preregisterURL: 'https://polar-plains-98105.herokuapp.com',
 };

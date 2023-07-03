@@ -2,24 +2,24 @@
 
 @include mat.legacy-core();
 
-$fairhive-typography: mat.define-typography-config();
-@include mat.typography-hierarchy($fairhive-typography);
+$poln-typography: mat.define-typography-config();
+@include mat.typography-hierarchy($poln-typography);
 
-$fairhive-primary: mat.define-palette(mat.$deep-orange-palette, 400, 300, 600);
-$fairhive-accent: mat.define-palette(mat.$teal-palette, 300, 200, 500);
-$fairhive-warn: mat.define-palette(mat.$red-palette);
+$poln-primary: mat.define-palette(mat.$deep-orange-palette, 400, 300, 600);
+$poln-accent: mat.define-palette(mat.$teal-palette, 300, 200, 500);
+$poln-warn: mat.define-palette(mat.$red-palette);
 
-$fairhive-light-theme: mat.define-light-theme((color: (primary: $fairhive-primary,
-            accent: $fairhive-accent,
-            warn: $fairhive-warn,
+$poln-light-theme: mat.define-light-theme((color: (primary: $poln-primary,
+            accent: $poln-accent,
+            warn: $poln-warn,
         )));
 
-$fairhive-dark-theme: mat.define-dark-theme((color: (primary: $fairhive-primary,
-            accent: $fairhive-accent,
-            warn: $fairhive-warn,
+$poln-dark-theme: mat.define-dark-theme((color: (primary: $poln-primary,
+            accent: $poln-accent,
+            warn: $poln-warn,
         )));
 
-$fairhive-dark-background: (status-bar: black,
+$poln-dark-background: (status-bar: black,
     app-bar: rgb(12, 14, 23),
     background: rgb(22, 24, 33), // reference
     hover: rgba(255, 255, 255, 0.04),
@@ -36,15 +36,15 @@ $fairhive-dark-background: (status-bar: black,
     tooltip: #36435d,
 );
 
-$dark-color-config: map-get($fairhive-dark-theme, color);
-$dark-color-config: map-merge($dark-color-config, (background: $fairhive-dark-background));
-$fairhive-dark-theme: map-merge($fairhive-dark-theme, (color:$dark-color-config));
-$fairhive-dark-theme: map-merge($fairhive-dark-theme, (background: $fairhive-dark-background));
+$dark-color-config: map-get($poln-dark-theme, color);
+$dark-color-config: map-merge($dark-color-config, (background: $poln-dark-background));
+$poln-dark-theme: map-merge($poln-dark-theme, (color:$dark-color-config));
+$poln-dark-theme: map-merge($poln-dark-theme, (background: $poln-dark-background));
 
-@include mat.all-component-themes($fairhive-light-theme);
+@include mat.all-component-themes($poln-light-theme);
 
 .dark-theme {
-    @include mat.all-component-colors($fairhive-dark-theme);
+    @include mat.all-component-colors($poln-dark-theme);
     background: linear-gradient(to right, rgba(3, 7, 87, 1) 0%, rgba(92, 14, 133, 1) 100%) !important;
 }
 

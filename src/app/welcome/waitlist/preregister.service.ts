@@ -9,7 +9,7 @@ import { Observable, retry } from 'rxjs';
 export class PreregisterService {
 
   readonly url = environment.preregisterURL;
-  readonly HASH_KEY = btoa('fairhive_landing_page_registration_hash');
+  readonly HASH_KEY = btoa('poln_landing_page_registration_hash');
 
   constructor(private http: HttpClient) { }
 

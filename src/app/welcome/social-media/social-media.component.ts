@@ -10,7 +10,7 @@ export class SocialMediaComponent implements OnInit {
   media: SocialMedia[] = [
     {
       name: 'email',
-      link: 'mailto:contact@fairhive-labs.com?subject=Hello fairhive'
+      link: 'mailto:contact@fairhive-labs.com?subject=Hello folks'
     },
     {
       name: 'github',
