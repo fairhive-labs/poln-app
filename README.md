@@ -1,8 +1,8 @@
-                         ____      _      __    _          
-                        / __/___ _(_)____/ /_  (_)   _____ 
-                       / /_/ __ `/ / ___/ __ \/ / | / / _ \
-                      / __/ /_/ / / /  / / / / /| |/ /  __/
-                     /_/  \__,_/_/_/  /_/ /_/_/ |___/\___/ 
+                              ____  ____  __    _   __
+                             / __ \/ __ \/ /   / | / /
+                            / /_/ / / / / /   /  |/ / 
+                           / ____/ /_/ / /___/ /|  /  
+                          /_/    \____/_____/_/ |_/   
                                                            
 [![CI Angular app through Github Actions](https://github.com/fairhive-labs/poln-app/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/fairhive-labs/poln-app/actions/workflows/main.yml)
 
