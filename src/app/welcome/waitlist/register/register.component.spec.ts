@@ -1,5 +1,5 @@
 import { MatCardModule } from '@angular/material/card';
-import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, flush, TestBed, tick } from '@angular/core/testing';
 
 import { RegisterComponent } from './register.component';
 import { MatInputModule } from '@angular/material/input';
@@ -88,6 +88,7 @@ describe('RegisterComponent', () => {
     expect(component.email.enabled).toBeTrue();
     expect(component.type.enabled).toBeTrue();
     expect(component.sponsor.enabled).toBeTrue();
+    flush();
   }));
 
   it('should call submit() and display an error', fakeAsync(() => {
@@ -113,6 +114,7 @@ describe('RegisterComponent', () => {
     expect(component.email.enabled).toBeTrue();
     expect(component.type.enabled).toBeTrue();
     expect(component.sponsor.enabled).toBeTrue();
+    flush();
   }));
 
   it('should be a valid user type', () => {
@@ -155,4 +157,3 @@ describe('RegisterComponent', () => {
     expect(component.address.hasError('required')).toBeTrue();
   });
 });
-
