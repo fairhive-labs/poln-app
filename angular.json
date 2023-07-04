@@ -111,10 +111,11 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "/poln-app/",
+            "baseHref": "/",
             "name": "_whyvrafvr",
             "email": "jsie@trendev.fr",
             "noSilent": true,
+            "cname": "www.poln.org",
             "dryRun": false
           }
         }
