@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
 @Component({ selector: 'app-initiator', template: '<h1>initiator</h1>' })
 class InitiatorStubComponent { }
 
-@Component({ selector: 'app-talent', template: '<h1>talent</h1>' })
-class TalentStubComponent { }
+@Component({ selector: 'app-contractor', template: '<h1>contractor</h1>' })
+class ContractorStubComponent { }
 
 @Component({ selector: 'app-agent', template: '<h1>agent</h1>' })
 class AgentStubComponent { }
@@ -27,7 +27,7 @@ describe('ActorsComponent', () => {
         ActorsComponent,
         InitiatorStubComponent,
         AgentStubComponent,
-        TalentStubComponent,
+        ContractorStubComponent,
         MentorStubComponent
       ]
     })

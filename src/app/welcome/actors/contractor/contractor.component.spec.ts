@@ -1,22 +1,22 @@
 import { MatCardModule } from '@angular/material/card';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TalentComponent } from './talent.component';
+import { ContractorComponent } from './contractor.component';
 
-describe('TalentComponent', () => {
-  let component: TalentComponent;
-  let fixture: ComponentFixture<TalentComponent>;
+describe('ContractorComponent', () => {
+  let component: ContractorComponent;
+  let fixture: ComponentFixture<ContractorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [MatCardModule],
-      declarations: [TalentComponent]
+      declarations: [ContractorComponent]
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TalentComponent);
+    fixture = TestBed.createComponent(ContractorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

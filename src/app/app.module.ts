@@ -9,7 +9,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { CredoComponent } from './welcome/credo/credo.component';
 import { ActorsComponent } from './welcome/actors/actors.component';
 import { ThemeSwitchComponent } from './theme-switch/theme-switch.component';
-import { TalentComponent } from './welcome/actors/talent/talent.component';
+import { ContractorComponent } from './welcome/actors/contractor/contractor.component';
 import { AgentComponent } from './welcome/actors/agent/agent.component';
 import { MentorComponent } from './welcome/actors/mentor/mentor.component';
 import { ValuesComponent } from './welcome/values/values.component';
@@ -31,7 +31,7 @@ import { InitiatorComponent } from './welcome/actors/initiator/initiator.compone
     ActorsComponent,
     ThemeSwitchComponent,
     InitiatorComponent,
-    TalentComponent,
+    ContractorComponent,
     AgentComponent,
     MentorComponent,
     ValuesComponent,
