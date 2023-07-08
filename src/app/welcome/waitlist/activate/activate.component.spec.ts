@@ -74,7 +74,7 @@ describe('ActivateComponent', () => {
   }));
 
   it('should call submit() and display an error', fakeAsync(() => {
-    preregisterService.activate.and.returnValue(throwError(() => new Error(`error thrown as expected, it's cool !`)));
+    preregisterService.activate.and.returnValue(throwError(() => new Error(`error thrown as expected ✅`)));
 
     component.hash.setValue('h4SH');
     expect(component.activationForm.valid).toBeTrue();

@@ -9,7 +9,6 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { CredoComponent } from './welcome/credo/credo.component';
 import { ActorsComponent } from './welcome/actors/actors.component';
 import { ThemeSwitchComponent } from './theme-switch/theme-switch.component';
-import { ClientComponent } from './welcome/actors/client/client.component';
 import { TalentComponent } from './welcome/actors/talent/talent.component';
 import { AgentComponent } from './welcome/actors/agent/agent.component';
 import { MentorComponent } from './welcome/actors/mentor/mentor.component';
@@ -22,6 +21,7 @@ import { ActivateComponent } from './welcome/waitlist/activate/activate.componen
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IntroVideoComponent } from './welcome/intro-video/intro-video.component';
+import { InitiatorComponent } from './welcome/actors/initiator/initiator.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { IntroVideoComponent } from './welcome/intro-video/intro-video.component
     CredoComponent,
     ActorsComponent,
     ThemeSwitchComponent,
-    ClientComponent,
+    InitiatorComponent,
     TalentComponent,
     AgentComponent,
     MentorComponent,

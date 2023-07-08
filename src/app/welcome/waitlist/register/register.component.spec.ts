@@ -92,7 +92,7 @@ describe('RegisterComponent', () => {
   }));
 
   it('should call submit() and display an error', fakeAsync(() => {
-    preregisterService.register.and.returnValue(throwError(() => new Error(`error thrown as expected, it's cool !`)));
+    preregisterService.register.and.returnValue(throwError(() => new Error(`error thrown as expected ✅`)));
 
     const email = 'jsie@trendev.fr';
     const address = '0x8ba1f109551bD432803012645Ac136ddd64DBA72';

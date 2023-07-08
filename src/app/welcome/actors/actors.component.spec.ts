@@ -4,8 +4,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActorsComponent } from './actors.component';
 import { Component } from '@angular/core';
 
-@Component({ selector: 'app-client', template: '<h1>client</h1>' })
-class ClientStubComponent { }
+@Component({ selector: 'app-initiator', template: '<h1>initiator</h1>' })
+class InitiatorStubComponent { }
 
 @Component({ selector: 'app-talent', template: '<h1>talent</h1>' })
 class TalentStubComponent { }
@@ -25,7 +25,7 @@ describe('ActorsComponent', () => {
       imports: [MatCardModule],
       declarations: [
         ActorsComponent,
-        ClientStubComponent,
+        InitiatorStubComponent,
         AgentStubComponent,
         TalentStubComponent,
         MentorStubComponent
