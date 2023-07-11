@@ -19,10 +19,6 @@ export class SocialMediaComponent implements OnInit {
     {
       name: 'slack',
       link: 'https://join.slack.com/t/fairhive-labs/shared_invite/zt-1plufue4k-eCdj~SVhIxFGWTJeLgFfXw'
-    },
-    {
-      name: 'medium',
-      link: 'https://medium.com/fairhive'
     }
   ];
 
