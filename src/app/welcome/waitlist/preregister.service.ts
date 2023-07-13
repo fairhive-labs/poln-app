@@ -14,6 +14,19 @@ export class PreregisterService {
   constructor(private http: HttpClient) { }
 
   register(address: string, email: string, type: string, sponsor: string) {
+
+    //@TODO: remove this Adapter when backend will be updated
+    switch (type) {
+      case 'contractor':
+        type = 'talent';
+        break;
+      case 'initiator':
+        type = 'client';
+        break;
+      default: //keep type
+        break;
+    }
+
     return this.http.post<RegisterResponse>(`${this.url}/register`, {
       address: address.trim(),
       email: email.trim(),
