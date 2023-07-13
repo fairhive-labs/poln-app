@@ -10,7 +10,7 @@
                     <th mat-header-cell *matHeaderCellDef mat-sort-header>Type</th>
                     <td mat-cell *matCellDef="let element">
                         <span
-                            *ngIf="element.type === 'agent' || element.type === 'client' || element.type === 'talent' || element.type === 'mentor' ; else notActor"
+                            *ngIf="element.type === 'agent' || element.type === 'client' || element.type === 'contractor' || element.type === 'mentor' ; else notActor"
                             class="{{element.type}}">
                             {{element.type | uppercase}}</span>
                         <ng-template #notActor>

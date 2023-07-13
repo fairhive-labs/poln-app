@@ -55,7 +55,7 @@ describe('ActivateComponent', () => {
       email: "john.doe@gmail.com",
       uuid: "uu1d",
       timestamp: 1684253919,
-      type: "talent",
+      type: "contractor",
       sponsor: '0xE3C3691DB5f5185F37A3f98e5ec76403B2d10c3E',
     };
     preregisterService.activate.and.returnValue(of(activateResponse));

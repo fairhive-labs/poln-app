@@ -99,7 +99,7 @@ describe('PreregisterService', () => {
       email: "john.doe@gmail.com",
       uuid: "uu1d",
       timestamp: 1684253919,
-      type: "talent",
+      type: "contractor",
       sponsor: sponsor,
     };
 
@@ -118,7 +118,7 @@ describe('PreregisterService', () => {
       email: "john.doe@gmail.com",
       uuid: "uu1d",
       timestamp: 1684253919,
-      type: "talent",
+      type: "contractor",
       sponsor: sponsor,
     };
 

@@ -87,8 +87,8 @@ export class RegisterComponent implements OnInit {
 }
 
 class CustomValidators {
-  //@TODO: replace client => initiator / talent => contractor
-  private static readonly _types = "advisor agent client contributor investor mentor talent";
+
+  private static readonly _types = "advisor agent client contributor investor mentor contractor";
   static types = CustomValidators._types.split(" ").sort((t1, t2) => t1.localeCompare(t2));
   static ethRegExp = /^0x[a-fA-F0-9]{40}$/;
 
