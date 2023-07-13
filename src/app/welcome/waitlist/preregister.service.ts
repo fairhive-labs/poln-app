@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '@env/environment';
-import { Observable, retry } from 'rxjs';
+import { Observable, map, retry } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +37,16 @@ export class PreregisterService {
     return this.http.get<CountResponse>(`${this.url}/${path1}/${path2}/count?mime=json
     `)
       .pipe(
-        retry(3)
+        retry(3),
+        //@TODO: remove this Adapter when backend will be updated
+        map(r => {
+          const { client, talent, ...rest } = r.users as any;
+          const users = { ...rest, initiator: client, contractor: talent } as UsersMap;
+          return {
+            total: r.total,
+            users: users //Adapter users map
+          } as CountResponse;
+        })
       );
   }
 
@@ -79,9 +88,9 @@ export interface CountResponse {
 export interface UsersMap {
   advisor: number;
   agent: number;
-  client: number;
+  initiator: number;
   contributor: number;
   investor: number;
   mentor: number;
-  talent: number;
+  contractor: number;
 }

@@ -1,6 +1,6 @@
 import { PreregisterService } from './../../welcome/waitlist/preregister.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { switchMap, take, catchError, of, finalize } from 'rxjs';
+import { switchMap, take, catchError, of, finalize, tap } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
@@ -72,6 +72,7 @@ export class UsersComponent implements OnInit {
               total: 0,
               users: undefined,
             })),
+            tap(console.log),
             finalize(() => this.progressing = false)
           );
       })
