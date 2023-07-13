@@ -118,7 +118,7 @@ describe('RegisterComponent', () => {
   }));
 
   it('should be a valid user type', () => {
-    component.type.setValue('talent');
+    component.type.setValue('contractor');
     expect(component.type.valid).toBeTrue();
     component.type.setValue('fakeuser');
     expect(component.type.valid).toBeFalse();
