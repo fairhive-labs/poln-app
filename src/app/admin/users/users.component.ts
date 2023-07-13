@@ -97,7 +97,7 @@ export class UsersComponent implements OnInit {
                 case 'agent':
                   colors.push('#ffe864');
                   break;
-                case 'client':
+                case 'initiator':
                   colors.push('#f36b6b');
                   break;
                 case 'mentor':
