@@ -13,8 +13,9 @@
 
 .media {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
 }
 
@@ -22,15 +23,19 @@ a {
     font-size: xx-large;
     font-weight: lighter;
     text-decoration: none;
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.outdated {
+    font-size: medium;
+    margin-top: -32px;
+    color: lightsalmon;
+    font-weight: bold;
 }
 
 @media all and (max-width: 500px) {
     .media {
-        flex-direction: column;
         width: auto;
-    }
-
-    a {
-        margin-bottom: 16px;
     }
 }
