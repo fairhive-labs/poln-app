@@ -15,18 +15,6 @@ export class PreregisterService {
 
   register(address: string, email: string, type: string, sponsor: string) {
 
-    //@TODO: remove this Adapter when backend will be updated
-    switch (type) {
-      case 'contractor':
-        type = 'talent';
-        break;
-      case 'initiator':
-        type = 'client';
-        break;
-      default: //keep type
-        break;
-    }
-
     return this.http.post<RegisterResponse>(`${this.url}/register`, {
       address: address.trim(),
       email: email.trim(),
@@ -49,18 +37,7 @@ export class PreregisterService {
   count(path1: string, path2: string) {
     return this.http.get<CountResponse>(`${this.url}/${path1}/${path2}/count?mime=json
     `)
-      .pipe(
-        retry(3),
-        //@TODO: remove this Adapter when backend will be updated
-        map(r => {
-          const { client, talent, ...rest } = r.users as any;
-          const users = { ...rest, initiator: client, contractor: talent } as UsersMap;
-          return {
-            total: r.total,
-            users: users //Adapter users map
-          } as CountResponse;
-        })
-      );
+      .pipe(retry(3));
   }
 
   saveHash(hash: string) {
