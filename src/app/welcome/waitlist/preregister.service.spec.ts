@@ -145,8 +145,31 @@ describe('PreregisterService', () => {
       }
     };
 
-    http.get<CountResponse>(`${url}/count/${path1}/${path2}`).subscribe(r => expect(r).toEqual(testData));
-    const req = httpTestingController.expectOne(`${url}/count/${path1}/${path2}`);
+    http.get<CountResponse>(`${url}/${path1}/${path2}/count?mime=json`).subscribe(r => expect(r).toEqual(testData));
+    const req = httpTestingController.expectOne(`${url}/${path1}/${path2}/count?mime=json`);
+    expect(req.request.method).toEqual('GET');
+    req.flush(testData);
+  });
+
+  it('can call count endpoint', () => {
+    const url = service.url;
+    const path1 = 'p4th1';
+    const path2 = 'p4th2';
+    const testData: CountResponse = {
+      total: 1,
+      users: {
+        advisor: 1,
+        agent: 2,
+        initiator: 3,
+        contributor: 4,
+        investor: 5,
+        mentor: 6,
+        contractor: 7
+      }
+    };
+
+    service.count(path1, path2).subscribe(r => expect(r).toEqual(testData));
+    const req = httpTestingController.expectOne(`${url}/${path1}/${path2}/count?mime=json`);
     expect(req.request.method).toEqual('GET');
     req.flush(testData);
   });
