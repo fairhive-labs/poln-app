@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
-import { PreregisterService, RegisterResponse, ActivateResponse } from './preregister.service';
+import { PreregisterService, RegisterResponse, ActivateResponse, CountResponse } from './preregister.service';
 
 describe('PreregisterService', () => {
   let service: PreregisterService;
@@ -125,6 +125,52 @@ describe('PreregisterService', () => {
     service.activate(token, hash).subscribe(r => expect(r).toEqual(testData));
     const req = httpTestingController.expectOne(`${url}/activate/${token}/${hash}`);
     expect(req.request.method).toEqual('POST');
+    req.flush(testData);
+  });
+
+  it('can http GET to count endpoint', () => {
+    const url = service.url;
+    const path1 = 'p4th1';
+    const path2 = 'p4th2';
+    const testData: CountResponse = {
+      total: 1,
+      users: {
+        advisor: 1,
+        agent: 2,
+        initiator: 3,
+        contributor: 4,
+        investor: 5,
+        mentor: 6,
+        contractor: 7
+      }
+    };
+
+    http.get<CountResponse>(`${url}/${path1}/${path2}/count?mime=json`).subscribe(r => expect(r).toEqual(testData));
+    const req = httpTestingController.expectOne(`${url}/${path1}/${path2}/count?mime=json`);
+    expect(req.request.method).toEqual('GET');
+    req.flush(testData);
+  });
+
+  it('can call count endpoint', () => {
+    const url = service.url;
+    const path1 = 'p4th1';
+    const path2 = 'p4th2';
+    const testData: CountResponse = {
+      total: 1,
+      users: {
+        advisor: 1,
+        agent: 2,
+        initiator: 3,
+        contributor: 4,
+        investor: 5,
+        mentor: 6,
+        contractor: 7
+      }
+    };
+
+    service.count(path1, path2).subscribe(r => expect(r).toEqual(testData));
+    const req = httpTestingController.expectOne(`${url}/${path1}/${path2}/count?mime=json`);
+    expect(req.request.method).toEqual('GET');
     req.flush(testData);
   });
 });

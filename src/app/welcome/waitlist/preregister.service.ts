@@ -33,10 +33,8 @@ export class PreregisterService {
       );
   }
 
-  // @TODO : control return value + unit test
   count(path1: string, path2: string) {
-    return this.http.get<CountResponse>(`${this.url}/${path1}/${path2}/count?mime=json
-    `)
+    return this.http.get<CountResponse>(`${this.url}/${path1}/${path2}/count?mime=json`)
       .pipe(retry(3));
   }
 
