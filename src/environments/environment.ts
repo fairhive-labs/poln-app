@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  title: 'poln',
+  title: 'PoLN',
   preregisterURL: 'http://localhost:8080',
 };
 
