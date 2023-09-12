@@ -5,8 +5,8 @@
 $poln-typography: mat.define-typography-config();
 @include mat.typography-hierarchy($poln-typography);
 
-$poln-primary: mat.define-palette(mat.$deep-orange-palette, 400, 300, 600);
-$poln-accent: mat.define-palette(mat.$teal-palette, 300, 200, 500);
+$poln-primary: mat.define-palette(mat.$cyan-palette, 200, 100, 600);
+$poln-accent: mat.define-palette(mat.$deep-orange-palette, 300, 200, 500);
 $poln-warn: mat.define-palette(mat.$red-palette);
 
 $poln-light-theme: mat.define-light-theme((color: (primary: $poln-primary,

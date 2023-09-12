@@ -6,7 +6,7 @@
         </mat-card-header>
         <mat-card-content>
             <form [formGroup]="activationForm">
-                <mat-form-field class="full-width" appearance="outline" color="accent">
+                <mat-form-field class="full-width" appearance="outline" color="primary">
                     <mat-label>Hash</mat-label>
                     <textarea matInput type="text" required formControlName="hash" rows="6"></textarea>
                     <mat-error *ngIf="hash.hasError('required')">
