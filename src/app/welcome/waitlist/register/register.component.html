@@ -9,7 +9,7 @@
         </mat-card-header>
         <mat-card-content>
             <form [formGroup]="preregistrationForm">
-                <mat-form-field class="full-width" appearance="outline" color="primary">
+                <mat-form-field class="full-width" appearance="outline" color="accent">
                     <mat-label>Your ETH Address</mat-label>
                     <input matInput type="text" required formControlName="address">
                     <mat-hint>For Airdrops / Giveaways</mat-hint>
@@ -20,7 +20,7 @@
                         ETH Address is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
-                <mat-form-field class="full-width" appearance="outline" color="primary">
+                <mat-form-field class="full-width" appearance="outline" color="accent">
                     <mat-label>Your Email Address</mat-label>
                     <mat-hint>Encrypted and Secured, for further communication</mat-hint>
                     <input matInput type="email" required formControlName="email">
@@ -31,7 +31,7 @@
                         Email is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
-                <mat-form-field class="full-width" appearance="outline" color="primary">
+                <mat-form-field class="full-width" appearance="outline" color="accent">
                     <mat-label>Your Category</mat-label>
                     <mat-hint>Users are organized into different categories</mat-hint>
                     <mat-select required formControlName="type">
@@ -41,7 +41,7 @@
                         Category is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
-                <mat-form-field class="full-width" appearance="outline" color="primary">
+                <mat-form-field class="full-width" appearance="outline" color="accent">
                     <mat-label>Your Sponsor's ETH Address</mat-label>
                     <mat-hint>You MUST be co-opted by a pre-registred member</mat-hint>
                     <input matInput type="text" required formControlName="sponsor">
