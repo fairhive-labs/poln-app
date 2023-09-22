@@ -45,7 +45,7 @@ $poln-dark-theme: map-merge($poln-dark-theme, (background: $poln-dark-background
 
 .dark-theme {
     @include mat.all-component-colors($poln-dark-theme);
-    background: linear-gradient(to right, rgba(3, 7, 87, 1) 0%, rgba(92, 14, 133, 1) 100%) !important;
+    // background: linear-gradient(to right, rgba(3, 7, 87, 1) 0%, rgba(92, 14, 133, 1) 100%) !important;
 }
 
 html,
