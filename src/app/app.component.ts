@@ -24,11 +24,13 @@ export class AppComponent {
 
     switch (mode) {
       case ThemeMode.Dark: {
+        this.document.documentElement.classList.remove('light-theme', 'mat-app-background');
         this.document.documentElement.classList.add('dark-theme', 'mat-app-background');
         break;
       }
       case ThemeMode.Light: {
         this.document.documentElement.classList.remove('dark-theme', 'mat-app-background');
+        this.document.documentElement.classList.add('light-theme', 'mat-app-background');
         break;
       }
     }
