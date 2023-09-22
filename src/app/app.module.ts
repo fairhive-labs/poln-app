@@ -12,7 +12,6 @@ import { ThemeSwitchComponent } from './theme-switch/theme-switch.component';
 import { ContractorComponent } from './welcome/actors/contractor/contractor.component';
 import { AgentComponent } from './welcome/actors/agent/agent.component';
 import { MentorComponent } from './welcome/actors/mentor/mentor.component';
-import { ValuesComponent } from './welcome/values/values.component';
 import { SocialMediaComponent } from './welcome/social-media/social-media.component';
 import { DeckWpComponent } from './welcome/deck-wp/deck-wp.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -34,7 +33,6 @@ import { InitiatorComponent } from './welcome/actors/initiator/initiator.compone
     ContractorComponent,
     AgentComponent,
     MentorComponent,
-    ValuesComponent,
     SocialMediaComponent,
     DeckWpComponent,
     PageNotFoundComponent,
