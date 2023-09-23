@@ -43,11 +43,11 @@ $poln-dark-theme: map-merge($poln-dark-theme, (background: $poln-dark-background
 
 @include mat.all-component-themes($poln-light-theme);
 
-.light-theme {
+// default light-theme background
+.mat-app-background {
     background-image: url("./assets/blockchain-background-light.png");
     background-size: cover;
 }
-
 
 .dark-theme {
     @include mat.all-component-colors($poln-dark-theme);

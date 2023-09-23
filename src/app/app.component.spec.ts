@@ -28,7 +28,7 @@ describe('AppComponent', () => {
         MatButtonModule
       ],
       declarations: [
-        AppComponent, 
+        AppComponent,
         ThemeSwitchStubComponent
       ],
     }).compileComponents();
@@ -54,8 +54,6 @@ describe('AppComponent', () => {
     expect(component.mode).toEqual(ThemeMode.Dark);
     expect(localStorage.getItem(THEME_MODE) as ThemeMode).toEqual(ThemeMode.Dark);
     expect(document.documentElement.classList.contains('dark-theme')).toBeTrue();
-    expect(document.documentElement.classList.contains('light-theme')).toBeFalse();
-    expect(document.documentElement.classList.contains('mat-app-background')).toBeTrue();
   });
 
   it('should enable light mode', () => {
@@ -63,8 +61,6 @@ describe('AppComponent', () => {
     expect(component.mode).toEqual(ThemeMode.Light);
     expect(localStorage.getItem(THEME_MODE) as ThemeMode).toEqual(ThemeMode.Light);
     expect(document.documentElement.classList.contains('dark-theme')).toBeFalse();
-    expect(document.documentElement.classList.contains('light-theme')).toBeTrue();
-    expect(document.documentElement.classList.contains('mat-app-background')).toBeTrue();
   });
 
 });

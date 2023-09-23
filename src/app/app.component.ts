@@ -12,7 +12,7 @@ export const THEME_MODE = btoa('poln_landing_page_theme_mode');
 export class AppComponent {
   disabled = true;
   mode: ThemeMode;
-  
+
   constructor(@Inject(DOCUMENT) private document: Document) {
     this.mode = localStorage.getItem(THEME_MODE) as ThemeMode || ThemeMode.Dark;
     this.enableMode(this.mode);
@@ -24,13 +24,11 @@ export class AppComponent {
 
     switch (mode) {
       case ThemeMode.Dark: {
-        this.document.documentElement.classList.remove('light-theme', 'mat-app-background');
-        this.document.documentElement.classList.add('dark-theme', 'mat-app-background');
+        this.document.documentElement.classList.add('dark-theme');
         break;
       }
       case ThemeMode.Light: {
-        this.document.documentElement.classList.remove('dark-theme', 'mat-app-background');
-        this.document.documentElement.classList.add('light-theme', 'mat-app-background');
+        this.document.documentElement.classList.remove('dark-theme');
         break;
       }
     }
