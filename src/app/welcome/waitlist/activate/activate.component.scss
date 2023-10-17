@@ -4,7 +4,7 @@
     align-items: center;
 }
 
-mat-card{
+mat-card {
     margin: 5%;
     max-width: 400px;
 }
@@ -17,11 +17,11 @@ mat-error {
     font-size: 75%;
 }
 
-.full-width{
+.full-width {
     width: 100%;
     margin-bottom: 16px;
 }
 
-.action {
-    margin-left: 8px;
+a {
+    text-decoration: none;
 }
