@@ -20,9 +20,9 @@
         </mat-card-content>
         <mat-card-actions align="end">
             <a mat-button href="https://docs.poln.org/airdrops/waitlist" target="_blank">LEARN MORE</a>
-            <button mat-button routerLink="/">HOME</button>
-            <button mat-button color="primary" (click)="submit()"
-                [disabled]="!activationForm.valid || progressing">SUBMIT</button>
+            <a mat-button routerLink="/">HOME</a>
+            <a mat-button color="primary" (click)="submit()"
+                [disabled]="!activationForm.valid || progressing">SUBMIT</a>
         </mat-card-actions>
         <mat-card-footer>
             <mat-progress-bar *ngIf="progressing" mode="indeterminate"></mat-progress-bar>
@@ -42,7 +42,7 @@
             </mat-card-content>
             <mat-card-actions align="end">
                 <a mat-button href="https://docs.poln.org/airdrops/waitlist" target="_blank">LEARN MORE</a>
-                <button mat-button routerLink="/">HOME</button>
+                <a mat-button routerLink="/">HOME</a>
             </mat-card-actions>
         </mat-card>
     </ng-template>
