@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class SocialMediaComponent implements OnInit {
 
   media: SocialMedia[] = [
-    {
-      name: 'email',
-      link: 'mailto:contact@fairhive-labs.com?subject=Hello PoLN folks'
-    },
+    // {
+    //   name: 'email',
+    //   link: 'mailto:contact@fairhive-labs.com?subject=Hello PoLN folks'
+    // },
     {
       name: 'github',
       link: 'https://github.com/fairhive-labs'
