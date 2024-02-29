@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class SocialMediaComponent implements OnInit {
 
   media: SocialMedia[] = [
-    // {
-    //    name: 'email',
-    //    link: 'mailto:contact@fairhive-labs.com?subject=Hello PoLN folks'
-    // },
+    {
+      name: 'email',
+      link: 'mailto:contact@fairhive-labs.com?subject=Hello PoLN folks'
+    },
     {
       name: 'github',
       link: 'https://github.com/fairhive-labs'
@@ -25,9 +25,13 @@ export class SocialMediaComponent implements OnInit {
       link: 'https://t.me/poln_official'
     },
     {
-      name: 'reddit',
-      link: 'https://www.reddit.com/r/poln/'
+      name: 'twitter/X',
+      link: 'https://twitter.com/poln_org'
     }
+    // {
+    //   name: 'reddit',
+    //   link: 'https://www.reddit.com/r/poln/'
+    // }
   ];
 
   constructor() { }
