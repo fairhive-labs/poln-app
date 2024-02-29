@@ -25,7 +25,7 @@ export class SocialMediaComponent implements OnInit {
       link: 'https://t.me/poln_official'
     },
     {
-      name: 'twitter/X',
+      name: 'twitter-X',
       link: 'https://twitter.com/poln_org'
     }
     // {
