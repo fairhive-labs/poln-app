@@ -13,20 +13,24 @@ export class SocialMediaComponent implements OnInit {
     //   link: 'mailto:contact@fairhive-labs.com?subject=Hello PoLN folks'
     // },
     {
-      name: 'github',
+      name: 'GitHub',
       link: 'https://github.com/fairhive-labs'
     },
     // {
     //   name: 'slack',
     //   link: 'https://join.slack.com/t/fairhive-labs/shared_invite/zt-1plufue4k-eCdj~SVhIxFGWTJeLgFfXw'
     // },
+    // {
+    //   name: 'Telegram',
+    //   link: 'https://t.me/poln_official'
+    // },
     {
-      name: 'telegram',
-      link: 'https://t.me/poln_official'
+      name: 'Twitter-X',
+      link: 'https://twitter.com/poln_org'
     },
     {
-      name: 'twitter-X',
-      link: 'https://twitter.com/poln_org'
+      name: 'Substack',
+      link: 'https://whyvrafvr.substack.com/'
     }
     // {
     //   name: 'reddit',
