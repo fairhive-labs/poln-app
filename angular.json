@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "poln-app:build:production"
+              "buildTarget": "poln-app:build:production"
             },
             "development": {
-              "browserTarget": "poln-app:build:development"
+              "buildTarget": "poln-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "poln-app:build"
+            "buildTarget": "poln-app:build"
           }
         },
         "test": {
