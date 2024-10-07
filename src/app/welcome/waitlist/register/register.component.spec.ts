@@ -6,10 +6,11 @@ import { MatInputModule } from '@angular/material/input';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { of, throwError } from 'rxjs';
 import { PreregisterService } from '../preregister.service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -21,18 +22,15 @@ describe('RegisterComponent', () => {
   beforeEach(async () => {
     preregisterService = jasmine.createSpyObj('PreregisterService', ['register', 'saveHash']);
     await TestBed.configureTestingModule({
-      imports: [
-        NoopAnimationsModule,
+    declarations: [RegisterComponent],
+    imports: [NoopAnimationsModule,
         MatCardModule,
         MatInputModule,
         MatSelectModule,
         ReactiveFormsModule,
-        HttpClientTestingModule,
-        MatProgressBarModule,
-      ],
-      declarations: [RegisterComponent],
-      providers: [{ provide: PreregisterService, useValue: preregisterService }]
-    })
+        MatProgressBarModule],
+    providers: [{ provide: PreregisterService, useValue: preregisterService }, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
       .compileComponents();
   });
 
