@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Component, Input } from '@angular/core';
 import { ThemeMode } from './theme-switch/theme-switch.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @Component({ selector: 'app-theme-switch', template: '<h3>switch theme</h3>' })
 class ThemeSwitchStubComponent {
@@ -21,6 +22,7 @@ describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
+        AppRoutingModule,
         MatToolbarModule,
         MatIconModule,
         MatButtonModule
