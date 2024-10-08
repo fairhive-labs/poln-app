@@ -61,3 +61,11 @@ td.mat-mdc-footer-cell:first-of-type {
 .contractor {
     color: #ffbe96 !important;
 }
+
+.nodata {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 16px;
+    color: #f36b6b;
+}
