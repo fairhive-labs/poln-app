@@ -21,8 +21,8 @@
         <mat-card-actions align="end">
             <a mat-button href="https://docs.poln.org/airdrops/waitlist" target="_blank">LEARN MORE</a>
             <a mat-button routerLink="/">HOME</a>
-            <a mat-button color="primary" (click)="submit()"
-                [disabled]="!activationForm.valid || progressing">SUBMIT</a>
+            <button mat-button color="primary" (click)="submit()"
+            [disabled]="!activationForm.valid || progressing">SUBMIT</button>
         </mat-card-actions>
         <mat-card-footer>
             <mat-progress-bar *ngIf="progressing" mode="indeterminate"></mat-progress-bar>
