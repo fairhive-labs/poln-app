@@ -1,4 +1,4 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -10,6 +10,7 @@ import { of, throwError } from 'rxjs';
 import { PreregisterService } from '../preregister.service';
 
 import { ActivateComponent } from './activate.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ActivateComponent', () => {
   let component: ActivateComponent;
@@ -20,18 +21,15 @@ describe('ActivateComponent', () => {
     preregisterService = jasmine.createSpyObj('PreregisterService', ['activate', 'loadHash', 'clearHash']);
     preregisterService.loadHash.and.returnValue(hash);
     await TestBed.configureTestingModule({
-      imports: [
-        NoopAnimationsModule,
+    declarations: [ActivateComponent],
+    imports: [NoopAnimationsModule,
         MatCardModule,
         MatInputModule,
         ReactiveFormsModule,
         RouterTestingModule,
-        HttpClientTestingModule,
-        MatProgressBarModule,
-      ],
-      declarations: [ActivateComponent],
-      providers: [{ provide: PreregisterService, useValue: preregisterService }]
-    })
+        MatProgressBarModule],
+    providers: [{ provide: PreregisterService, useValue: preregisterService }, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
       .compileComponents();
   });
 

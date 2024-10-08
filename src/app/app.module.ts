@@ -13,32 +13,25 @@ import { DeckWpComponent } from './welcome/deck-wp/deck-wp.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterComponent } from './welcome/waitlist/register/register.component';
 import { ActivateComponent } from './welcome/waitlist/activate/activate.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IntroVideoComponent } from './welcome/intro-video/intro-video.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    WelcomeComponent,
-    CredoComponent,
-    ThemeSwitchComponent,
-    SocialMediaComponent,
-    DeckWpComponent,
-    PageNotFoundComponent,
-    RegisterComponent,
-    ActivateComponent,
-    IntroVideoComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    SharedModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        WelcomeComponent,
+        CredoComponent,
+        ThemeSwitchComponent,
+        SocialMediaComponent,
+        DeckWpComponent,
+        PageNotFoundComponent,
+        RegisterComponent,
+        ActivateComponent,
+        IntroVideoComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        AppRoutingModule,
+        SharedModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
