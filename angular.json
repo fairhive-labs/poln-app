@@ -23,9 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": {
-              "base": "dist/poln-app"
-            },
+            "outputPath": "dist/poln-app",
             "index": "src/index.html",
             "polyfills": [
               "src/polyfills.ts"
