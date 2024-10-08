@@ -28,7 +28,8 @@
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
             <ng-template #nodata>
-                <div class="nodata"><mat-icon aria-hidden="false" aria-label="no data" fontIcon="sync_problem"></mat-icon><b>NO DATA</b></div>
+                <div class="nodata"><mat-icon aria-hidden="false" aria-label="no data"
+                        fontIcon="sync_problem"></mat-icon><b>NO DATA</b></div>
             </ng-template>
             <div *ngIf="dataSource?.data?.length" style="display: block;">
                 <canvas baseChart [data]="data" [type]="chartType" [options]="chartOptions">
