@@ -116,7 +116,8 @@
             "email": "jsie@trendev.fr",
             "noSilent": true,
             "cname": "www.poln.org",
-            "dryRun": false
+            "dryRun": false,
+            "repo": "https://github.com/fairhive-labs/poln-app.git"
           }
         }
       }
