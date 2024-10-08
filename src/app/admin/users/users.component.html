@@ -28,16 +28,16 @@
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
             <ng-template #nodata>
-                <p>NO DATA</p>
+                <div class="nodata"><mat-icon aria-hidden="false" aria-label="no data" fontIcon="sync_problem"></mat-icon><b>NO DATA</b></div>
             </ng-template>
             <div *ngIf="dataSource?.data?.length" style="display: block;">
                 <canvas baseChart [data]="data" [type]="chartType" [options]="chartOptions">
                 </canvas>
             </div>
         </mat-card-content>
-        <mat-card-actions align="end">
-            <a mat-raised-button href="{{url}}" color="primary" style="width: 100%;" [disabled]="!dataSource"
-                target="_blank">Download Users list - CSV</a>
+        <mat-card-actions align="end" *ngIf="dataSource?.data?.length">
+            <a mat-raised-button href="{{url}}" color="primary" style="width: 100%;" target="_blank">Download Users list
+                - CSV</a>
         </mat-card-actions>
         <mat-card-footer>
             <mat-progress-bar *ngIf="progressing" mode="indeterminate"></mat-progress-bar>
