@@ -5,12 +5,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterTestingModule } from '@angular/router/testing';
 import { of, throwError } from 'rxjs';
 import { PreregisterService } from '../preregister.service';
 
 import { ActivateComponent } from './activate.component';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideRouter } from '@angular/router';
 
 describe('ActivateComponent', () => {
   let component: ActivateComponent;
@@ -21,15 +21,14 @@ describe('ActivateComponent', () => {
     preregisterService = jasmine.createSpyObj('PreregisterService', ['activate', 'loadHash', 'clearHash']);
     preregisterService.loadHash.and.returnValue(hash);
     await TestBed.configureTestingModule({
-    declarations: [ActivateComponent],
-    imports: [NoopAnimationsModule,
+      declarations: [ActivateComponent],
+      imports: [NoopAnimationsModule,
         MatCardModule,
         MatInputModule,
         ReactiveFormsModule,
-        RouterTestingModule,
         MatProgressBarModule],
-    providers: [{ provide: PreregisterService, useValue: preregisterService }, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
-})
+      providers: [{ provide: PreregisterService, useValue: preregisterService }, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter([])]
+    })
       .compileComponents();
   });
 
