@@ -1,6 +1,6 @@
 @use '@angular/material'as mat;
 
-@include mat.legacy-core();
+@include mat.core();
 
 $poln-typography: mat.define-typography-config();
 @include mat.typography-hierarchy($poln-typography);
