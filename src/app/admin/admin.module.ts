@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { UsersComponent } from './users/users.component';
-import { NgChartsModule } from 'ng2-charts';
+import { BaseChartDirective, provideCharts, withDefaultRegisterables } from 'ng2-charts';
+import { Legend, Colors } from 'chart.js';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NgChartsModule } from 'ng2-charts';
     CommonModule,
     AdminRoutingModule,
     SharedModule,
-    NgChartsModule,
-  ]
+    BaseChartDirective
+  ],
+  providers: [provideCharts(withDefaultRegisterables())],
 })
 export class AdminModule { }
