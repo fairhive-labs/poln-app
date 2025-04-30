@@ -2,9 +2,10 @@ import { environment } from '@env/environment';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-credo',
-  templateUrl: './credo.component.html',
-  styleUrls: ['./credo.component.scss']
+    selector: 'app-credo',
+    templateUrl: './credo.component.html',
+    styleUrls: ['./credo.component.scss'],
+    standalone: false
 })
 export class CredoComponent implements OnInit {
   title = environment.title;

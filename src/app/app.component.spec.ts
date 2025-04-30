@@ -7,7 +7,10 @@ import { Component, Input } from '@angular/core';
 import { ThemeMode } from './theme-switch/theme-switch.component';
 import { AppRoutingModule } from './app-routing.module';
 
-@Component({ selector: 'app-theme-switch', template: '<h3>switch theme</h3>' })
+@Component({
+    selector: 'app-theme-switch', template: '<h3>switch theme</h3>',
+    standalone: false
+})
 class ThemeSwitchStubComponent {
   @Input() mode: ThemeMode;
 }

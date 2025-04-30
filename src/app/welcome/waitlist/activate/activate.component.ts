@@ -6,9 +6,10 @@ import { catchError, finalize, of } from 'rxjs';
 import { PreregisterService } from '../preregister.service';
 
 @Component({
-  selector: 'app-activate',
-  templateUrl: './activate.component.html',
-  styleUrls: ['./activate.component.scss']
+    selector: 'app-activate',
+    templateUrl: './activate.component.html',
+    styleUrls: ['./activate.component.scss'],
+    standalone: false
 })
 export class ActivateComponent implements OnInit {
 

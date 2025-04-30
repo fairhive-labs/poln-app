@@ -7,9 +7,10 @@ import { MatSort } from '@angular/material/sort';
 import { ChartData, ChartOptions, ChartType } from 'chart.js';
 
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss']
+    selector: 'app-users',
+    templateUrl: './users.component.html',
+    styleUrls: ['./users.component.scss'],
+    standalone: false
 })
 export class UsersComponent implements OnInit {
 

@@ -5,9 +5,10 @@ import { ThemeMode } from './theme-switch/theme-switch.component';
 export const THEME_MODE = btoa('poln_landing_page_theme_mode');
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    standalone: false
 })
 export class AppComponent {
   disabled = true;

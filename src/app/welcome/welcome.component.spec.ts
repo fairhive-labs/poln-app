@@ -6,22 +6,40 @@ import { MatCardModule } from '@angular/material/card';
 
 import { Component } from '@angular/core';
 
-@Component({ selector: 'app-credo', template: '<h1>credo</h1>' })
+@Component({
+    selector: 'app-credo', template: '<h1>credo</h1>',
+    standalone: false
+})
 class CredoStubComponent { }
 
-@Component({ selector: 'app-actors', template: '<h1>actors</h1>' })
+@Component({
+    selector: 'app-actors', template: '<h1>actors</h1>',
+    standalone: false
+})
 class ActorsStubComponent { }
 
-@Component({ selector: 'app-values', template: '<h2>value</h2>' })
+@Component({
+    selector: 'app-values', template: '<h2>value</h2>',
+    standalone: false
+})
 class ValuesStubComponent { }
 
-@Component({ selector: 'app-social-media', template: '<h2>social-media</h2>' })
+@Component({
+    selector: 'app-social-media', template: '<h2>social-media</h2>',
+    standalone: false
+})
 class SocialMediaStubComponent { }
 
-@Component({ selector: 'app-deck-wp', template: '<h2>social-media</h2>' })
+@Component({
+    selector: 'app-deck-wp', template: '<h2>social-media</h2>',
+    standalone: false
+})
 class DeckWpStubComponent { }
 
-@Component({ selector: 'app-intro-video', template: '<h2>video</h2>' })
+@Component({
+    selector: 'app-intro-video', template: '<h2>video</h2>',
+    standalone: false
+})
 class IntroVideoStubComponent { }
 
 describe('WelcomeComponent', () => {
